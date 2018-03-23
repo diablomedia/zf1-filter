@@ -1009,6 +1009,7 @@ class Zend_Filter_Input
                 foreach ($data as $fieldKey => $field) {
                     // if there is no Zend_Validate_NotEmpty instance in the rules, we will use the default
                     if (!($notEmptyValidator = $this->_getNotEmptyValidatorInstance($validatorRule))) {
+                        /** @var Zend_Validate_NotEmpty $notEmptyValidator */
                         $notEmptyValidator = $this->_getValidator('NotEmpty');
                         $notEmptyValidator->setMessage($this->_getNotEmptyMessage($validatorRule[self::RULE], $fieldKey));
                     }
@@ -1051,6 +1052,7 @@ class Zend_Filter_Input
 
             // if there is no Zend_Validate_NotEmpty instance in the rules, we will use the default
             if (!($notEmptyValidator = $this->_getNotEmptyValidatorInstance($validatorRule))) {
+                /** @var Zend_Validate_NotEmpty $notEmptyValidator */
                 $notEmptyValidator = $this->_getValidator('NotEmpty');
                 $notEmptyValidator->setMessage($this->_getNotEmptyMessage($validatorRule[self::RULE], $fieldName));
             }
@@ -1118,7 +1120,7 @@ class Zend_Filter_Input
      * The purpose is to preserve things like a custom message, that may have been
      * set on the validator outside Zend_Filter_Input.
      * @param array $validatorRule
-     * @return mixed false if none is found, Zend_Validate_NotEmpty instance if found
+     * @return Zend_Validate_NotEmpty|false false if none is found, Zend_Validate_NotEmpty instance if found
      */
     protected function _getNotEmptyValidatorInstance($validatorRule) {
         foreach ($validatorRule as $rule => $value) {

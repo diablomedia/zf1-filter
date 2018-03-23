@@ -47,7 +47,7 @@ class Zend_Filter_Compress_Zip extends Zend_Filter_Compress_CompressAbstract
     /**
      * Class constructor
      *
-     * @param string|array $options (Optional) Options to set
+     * @param Zend_Config|array $options (Optional) Options to set
      */
     public function __construct($options = null)
     {

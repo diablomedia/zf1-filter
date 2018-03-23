@@ -129,7 +129,7 @@ class Zend_Filter_Boolean implements Zend_Filter_Interface
      *
      * @param  integer|array|string $type
      * @throws Zend_Filter_Exception
-     * @return Zend_Filter_Boolean
+     * @return $this
      */
     public function setType($type = null)
     {
@@ -171,7 +171,7 @@ class Zend_Filter_Boolean implements Zend_Filter_Interface
      *
      * @param  string|array|Zend_Locale $locale
      * @throws Zend_Filter_Exception
-     * @return Zend_Filter_Boolean
+     * @return $this
      */
     public function setLocale($locale = null)
     {
@@ -210,7 +210,7 @@ class Zend_Filter_Boolean implements Zend_Filter_Interface
      *                          When false it recognises only true and false
      *                          and all other values are returned as is
      * @throws Zend_Filter_Exception
-     * @return Zend_Filter_Boolean
+     * @return $this
      */
     public function setCasting($casting = true)
     {

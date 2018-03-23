@@ -150,7 +150,7 @@ class Zend_Filter_Encrypt_Mcrypt implements Zend_Filter_Encrypt_Interface
      * Sets the initialization vector
      *
      * @param string $vector (Optional) Vector to set
-     * @return Zend_Filter_Encrypt_Mcrypt
+     * @return $this
      */
     public function setVector($vector = null)
     {
@@ -194,11 +194,11 @@ class Zend_Filter_Encrypt_Mcrypt implements Zend_Filter_Encrypt_Interface
      * Sets a internal compression for values to encrypt
      *
      * @param string|array $compression
-     * @return Zend_Filter_Encrypt_Mcrypt
+     * @return $this
      */
     public function setCompression($compression)
     {
-        if (is_string($this->_compression)) {
+        if (is_string($compression)) {
             $compression = array('adapter' => $compression);
         }
 
@@ -291,7 +291,7 @@ class Zend_Filter_Encrypt_Mcrypt implements Zend_Filter_Encrypt_Interface
      * Close a cipher
      *
      * @param  resource $cipher Cipher to close
-     * @return Zend_Filter_Encrypt_Mcrypt
+     * @return $this
      */
     protected function _closeCipher($cipher)
     {

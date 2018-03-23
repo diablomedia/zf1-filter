@@ -113,7 +113,7 @@ class Zend_Filter_Compress_Rar extends Zend_Filter_Compress_CompressAbstract
     /**
      * Returns the set password
      *
-     * @return string
+     * @return string|null
      */
     public function getPassword()
     {

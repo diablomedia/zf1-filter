@@ -30,6 +30,11 @@
 abstract class Zend_Filter_Compress_CompressAbstract implements Zend_Filter_Compress_CompressInterface
 {
     /**
+     * @var array
+     */
+    protected $_options = array();
+
+    /**
      * Class constructor
      *
      * @param array|Zend_Config $options (Optional) Options to set

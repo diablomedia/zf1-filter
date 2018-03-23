@@ -304,7 +304,7 @@ class Zend_Filter_Encrypt_Openssl implements Zend_Filter_Encrypt_Interface
      */
     public function setCompression($compression)
     {
-        if (is_string($this->_compression)) {
+        if (is_string($compression)) {
             $compression = array('adapter' => $compression);
         }
 
@@ -418,6 +418,8 @@ class Zend_Filter_Encrypt_Openssl implements Zend_Filter_Encrypt_Interface
         if (!$this->_package && empty($envelope)) {
             throw new Zend_Filter_Exception('Please give a envelope key for decryption with Openssl');
         }
+
+        $keys = null;
 
         foreach($this->_keys['private'] as $key => $cert) {
             $keys = openssl_pkey_get_private($cert, $this->getPassphrase());
