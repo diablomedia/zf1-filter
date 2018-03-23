@@ -97,11 +97,8 @@ class Zend_Filter_PregReplaceTest extends PHPUnit\Framework\TestCase
     {
         $string = 'controller/action';
         $this->filter->setReplacement('foo/bar');
-        try {
-            $filtered = $this->filter->filter($string);
-            $this->fail('Replacement should fail when no match pattern present');
-        } catch (Exception $e) {
-        }
+        $this->expectException(Exception::class);
+        $filtered = $this->filter->filter($string);
     }
 
     /**

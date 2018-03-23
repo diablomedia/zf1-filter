@@ -1439,6 +1439,9 @@ class Zend_Filter_InputTest extends PHPUnit\Framework\TestCase
 
     }
 
+    /**
+     * @doesNotPerformAssertions
+     */
     public function testSetPluginLoader()
     {
         $input = new Zend_Filter_Input(null, null);
@@ -2260,6 +2263,7 @@ class Zend_Filter_InputTest extends PHPUnit\Framework\TestCase
      * doesn't cause a notice to be emitted
      *
      * @group ZF-11819
+     * @doesNotPerformAssertions
      */
     public function testValidatorRuleCanHaveEmptyArrayAsMetacommandValue()
     {
