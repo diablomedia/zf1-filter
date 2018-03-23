@@ -20,7 +20,6 @@
  * @version    $Id$
  */
 
-require_once 'Zend/Filter/Word/UnderscoreToDash.php';
 
 /**
  * Test class for Zend_Filter_Word_UnderscoreToDash.

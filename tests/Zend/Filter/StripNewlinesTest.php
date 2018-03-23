@@ -20,10 +20,6 @@
  * @version    $Id $
  */
 
-/**
- * @see Zend_Filter_StripNewlines
- */
-require_once 'Zend/Filter/StripNewlines.php';
 
 /**
  * @category   Zend

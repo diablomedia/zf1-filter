@@ -20,10 +20,6 @@
  * @version    $Id$
  */
 
-/**
- * @see Zend_Filter_File_Rename
- */
-require_once 'Zend/Filter/File/Rename.php';
 
 /**
  * @category   Zend

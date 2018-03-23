@@ -20,10 +20,6 @@
  * @version    $Id$
  */
 
-/**
- * @see Zend_Filter_StringTrim
- */
-require_once 'Zend/Filter/StringTrim.php';
 
 /**
  * @category   Zend

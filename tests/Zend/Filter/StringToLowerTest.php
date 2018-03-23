@@ -20,11 +20,6 @@
  * @version    $Id$
  */
 
-/**
- * @see Zend_Filter_StringToLower
- */
-require_once 'Zend/Filter/StringToLower.php';
-
 
 /**
  * @category   Zend

@@ -20,11 +20,6 @@
  * @version    $Id$
  */
 
-/**
- * @see Zend_Filter_Alnum
- */
-require_once 'Zend/Filter/Alnum.php';
-
 
 /**
  * @category   Zend

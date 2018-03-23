@@ -20,10 +20,6 @@
  * @version    $Id$
  */
 
-/**
- * @see Zend_Filter_HtmlEntities
- */
-require_once 'Zend/Filter/HtmlEntities.php';
 
 /**
  * @category   Zend

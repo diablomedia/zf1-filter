@@ -20,10 +20,6 @@
  * @version    $Id$
  */
 
-/**
- * @see Zend_Filter_Encrypt_Mcrypt
- */
-require_once 'Zend/Filter/Encrypt/Mcrypt.php';
 
 /**
  * @category   Zend

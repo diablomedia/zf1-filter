@@ -20,11 +20,6 @@
  * @version    $Id$
  */
 
-/**
- * @see Zend_Filter_PregReplace
- */
-require_once 'Zend/Filter/PregReplace.php';
-
 
 /**
  * Test class for Zend_Filter_PregReplace.

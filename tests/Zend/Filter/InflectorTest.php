@@ -20,10 +20,6 @@
  * @version    $Id$
  */
 
-/**
- * @see Zend_Filter_Inflector
- */
-require_once 'Zend/Filter/Inflector.php';
 
 /**
  * Test class for Zend_Filter_Inflector.

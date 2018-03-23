@@ -20,10 +20,6 @@
  * @version    $Id$
  */
 
-/**
- * @see Zend_Filter_RealPath
- */
-require_once 'Zend/Filter/RealPath.php';
 
 /**
  * @category   Zend

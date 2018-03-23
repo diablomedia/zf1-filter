@@ -20,11 +20,6 @@
  * @version    $Id$
  */
 
-/**
- * @see Zend_Filter
- */
-require_once 'Zend/Filter.php';
-
 
 /**
  * @category   Zend

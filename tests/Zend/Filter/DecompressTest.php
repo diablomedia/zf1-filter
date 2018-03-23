@@ -20,10 +20,6 @@
  * @version    $Id: $
  */
 
-/**
- * @see Zend_Filter_Decompress
- */
-require_once 'Zend/Filter/Decompress.php';
 
 /**
  * @category   Zend

@@ -20,10 +20,6 @@
  * @version    $Id$
  */
 
-/**
- * @see Zend_Filter_LocalizedToNormalized
- */
-require_once 'Zend/Filter/LocalizedToNormalized.php';
 
 /**
  * @category   Zend

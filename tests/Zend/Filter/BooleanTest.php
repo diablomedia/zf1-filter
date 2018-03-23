@@ -20,10 +20,6 @@
  * @version    $Id$
  */
 
-/**
- * @see Zend_Filter_Boolean
- */
-require_once 'Zend/Filter/Boolean.php';
 
 /**
  * @category   Zend

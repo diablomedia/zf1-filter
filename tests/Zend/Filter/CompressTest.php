@@ -20,10 +20,6 @@
  * @version    $Id: $
  */
 
-/**
- * @see Zend_Filter_Compress
- */
-require_once 'Zend/Filter/Compress.php';
 
 /**
  * @category   Zend

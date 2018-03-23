@@ -22,14 +22,6 @@
 
 
 /**
- * @see Zend_Validate_Abstract
- */
-require_once 'Zend/Validate/Abstract.php';
-
-
-
-
-/**
  * Mock file for testbed
  *
  * @category   Zend

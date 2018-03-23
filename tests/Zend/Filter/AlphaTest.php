@@ -22,12 +22,6 @@
 
 
 /**
- * @see Zend_Filter_Alpha
- */
-require_once 'Zend/Filter/Alpha.php';
-
-
-/**
  * @category   Zend
  * @package    Zend_Filter
  * @subpackage UnitTests

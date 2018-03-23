@@ -20,11 +20,6 @@
  * @version    $Id$
  */
 
-/**
- * @see Zend_Filter_StripTags
- */
-require_once 'Zend/Filter/StripTags.php';
-
 
 /**
  * @category   Zend
