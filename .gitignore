@@ -1,3 +1,4 @@
 /vendor
 /composer.lock
 /clover.xml
+/tests/Zend/Filter/_files/Users

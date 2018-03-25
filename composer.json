@@ -17,10 +17,10 @@
         "diablomedia/zendframework1-loader": "^1.0.0",
         "diablomedia/zendframework1-crypt": "^1.0.0",
         "diablomedia/zendframework1-registry": "^1.0.0",
-        "diablomedia/zendframework1-date": "dev-master",
-        "diablomedia/zendframework1-locale": "dev-master",
-        "diablomedia/zendframework1-translate": "dev-master",
-        "diablomedia/zendframework1-validate": "dev-master"
+        "diablomedia/zendframework1-date": "*",
+        "diablomedia/zendframework1-locale": "*",
+        "diablomedia/zendframework1-translate": "*",
+        "diablomedia/zendframework1-validate": "*"
     },
     "autoload": {
         "psr-0": {
