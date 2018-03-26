@@ -16,11 +16,8 @@
         "diablomedia/zendframework1-config": "^1.0.0",
         "diablomedia/zendframework1-loader": "^1.0.0",
         "diablomedia/zendframework1-crypt": "^1.0.0",
-        "diablomedia/zendframework1-registry": "^1.0.0",
-        "diablomedia/zendframework1-date": "*",
-        "diablomedia/zendframework1-locale": "*",
-        "diablomedia/zendframework1-translate": "*",
-        "diablomedia/zendframework1-validate": "*"
+        "diablomedia/zendframework1-date": "^1.0.0",
+        "diablomedia/zendframework1-locale": "^1.0.0"
     },
     "autoload": {
         "psr-0": {
@@ -55,5 +52,8 @@
         "test": "phpunit ./tests",
         "test-with-coverage": "phpunit --coverage-clover=clover.xml ./tests",
         "phpstan": "phpstan analyze -l6 -c phpstan.neon --no-progress ./src --ansi"
+    },
+    "suggest": {
+        "diablomedia/zendframework1-filter-input": "Provides the separate Zend_Filter_Input component"
     }
 }

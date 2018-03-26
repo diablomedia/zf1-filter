@@ -9,7 +9,5 @@ parameters:
         - '#Function lzf_decompress not found\.#'
         - '#Zend_Filter_.+::__construct\(\) does not call parent constructor from Zend_Filter_.+\.#'
         - '#Variable \$file might not be defined\.#'
-        - '#Method Zend_Filter_Input::_getFilter\(\) should return Zend_Filter_Interface but returns Zend_Filter_Interface\|Zend_Validate_Interface\.#'
-        - '#Method Zend_Filter_Input::_getValidator\(\) should return Zend_Validate_Interface but returns Zend_Filter_Interface\|Zend_Validate_Interface\.#'
         - '#Parameter \#1 \$p_filelist of method Archive_Tar::create\(\) expects array, array\|string given\.#'
         - '#Parameter \#3 \$locale of static method Zend_Locale::getTranslation\(\) expects string\|Zend_Locale\|null, array given\.#'
