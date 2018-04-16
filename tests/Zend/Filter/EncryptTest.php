@@ -66,7 +66,7 @@ class Zend_Filter_EncryptTest extends PHPUnit\Framework\TestCase
             $this->markTestSkipped('Mcrypt extension not installed');
         }
 
-        $filter = new Zend_Filter_Encrypt(array('adapter' => 'Mcrypt', 'key' => 'testkey'));
+        $filter         = new Zend_Filter_Encrypt(array('adapter' => 'Mcrypt', 'key' => 'testkey'));
         $valuesExpected = array(
             'STRING' => 'STRING',
             'ABC1@3' => 'ABC1@3',
@@ -92,7 +92,7 @@ class Zend_Filter_EncryptTest extends PHPUnit\Framework\TestCase
             $this->markTestSkipped('Openssl extension not installed');
         }
 
-        $filter = new Zend_Filter_Encrypt(array('adapter' => 'Openssl'));
+        $filter         = new Zend_Filter_Encrypt(array('adapter' => 'Openssl'));
         $valuesExpected = array(
             'STRING' => 'STRING',
             'ABC1@3' => 'ABC1@3',
@@ -122,7 +122,8 @@ FDD4V7XpcNU63QIDAQABMA0GCSqGSIb3DQEBBAUAA4GBAFQ22OU/PAN7rRDr23NS
 PIDs9E7uuizAKDhRRRvho8BS
 -----END CERTIFICATE-----
 '),
-            $key);
+            $key
+        );
         foreach ($valuesExpected as $input => $output) {
             $this->assertNotEquals($output, $filter->filter($input));
         }
@@ -159,13 +160,13 @@ PIDs9E7uuizAKDhRRRvho8BS
         $filter = new Zend_Filter_Encrypt(array('adapter' => 'Mcrypt', 'key' => 'testkey'));
         $filter->setVector('testvect');
         $this->assertEquals(
-            array('key' => 'testkey',
-                  'algorithm' => MCRYPT_BLOWFISH,
+            array('key'                 => 'testkey',
+                  'algorithm'           => MCRYPT_BLOWFISH,
                   'algorithm_directory' => '',
-                  'mode' => MCRYPT_MODE_CBC,
-                  'mode_directory' => '',
-                  'vector' => 'testvect',
-                  'salt' => false),
+                  'mode'                => MCRYPT_MODE_CBC,
+                  'mode_directory'      => '',
+                  'vector'              => 'testvect',
+                  'salt'                => false),
             $filter->getEncryption()
         );
     }
@@ -184,16 +185,17 @@ PIDs9E7uuizAKDhRRRvho8BS
         $filter = new Zend_Filter_Encrypt(array('adapter' => 'Mcrypt', 'key' => 'testkey'));
         $filter->setVector('testvect');
         $filter->setEncryption(
-            array('mode' => MCRYPT_MODE_ECB,
-                  'algorithm' => MCRYPT_3DES));
+            array('mode'      => MCRYPT_MODE_ECB,
+                  'algorithm' => MCRYPT_3DES)
+        );
         $this->assertEquals(
-            array('key' => 'testkey',
-                  'algorithm' => MCRYPT_3DES,
+            array('key'                 => 'testkey',
+                  'algorithm'           => MCRYPT_3DES,
                   'algorithm_directory' => '',
-                  'mode' => MCRYPT_MODE_ECB,
-                  'mode_directory' => '',
-                  'vector' => 'testvect',
-                  'salt' => false),
+                  'mode'                => MCRYPT_MODE_ECB,
+                  'mode_directory'      => '',
+                  'vector'              => 'testvect',
+                  'salt'                => false),
             $filter->getEncryption()
         );
     }
@@ -234,7 +236,7 @@ PIDs9E7uuizAKDhRRRvho8BS
 
         $filter = new Zend_Filter_Encrypt(array('adapter' => 'Openssl'));
         $filter->setPublicKey(dirname(__FILE__) . '/_files/publickey.pem');
-        $output = $filter->filter('teststring');
+        $output       = $filter->filter('teststring');
         $envelopekeys = $filter->getEnvelopeKey();
         $this->assertNotEquals('teststring', $output);
 

@@ -104,7 +104,7 @@ class Zend_Filter_Compress_Rar extends Zend_Filter_Compress_CompressAbstract
      */
     public function setArchive($archive)
     {
-        $archive = str_replace(array('/', '\\'), DIRECTORY_SEPARATOR, $archive);
+        $archive                   = str_replace(array('/', '\\'), DIRECTORY_SEPARATOR, $archive);
         $this->_options['archive'] = (string) $archive;
 
         return $this;
@@ -154,7 +154,7 @@ class Zend_Filter_Compress_Rar extends Zend_Filter_Compress_CompressAbstract
             throw new Zend_Filter_Exception("The directory '$target' does not exist");
         }
 
-        $target = str_replace(array('/', '\\'), DIRECTORY_SEPARATOR, $target);
+        $target                   = str_replace(array('/', '\\'), DIRECTORY_SEPARATOR, $target);
         $this->_options['target'] = (string) $target;
         return $this;
     }
@@ -206,7 +206,7 @@ class Zend_Filter_Compress_Rar extends Zend_Filter_Compress_CompressAbstract
         }
 
         if (!$archive) {
-            throw new Zend_Filter_Exception("Error opening the RAR Archive");
+            throw new Zend_Filter_Exception('Error opening the RAR Archive');
         }
 
         $target = $this->getTarget();
@@ -216,10 +216,10 @@ class Zend_Filter_Compress_Rar extends Zend_Filter_Compress_CompressAbstract
 
         $filelist = rar_list($archive);
         if (!$filelist) {
-            throw new Zend_Filter_Exception("Error reading the RAR Archive");
+            throw new Zend_Filter_Exception('Error reading the RAR Archive');
         }
 
-        foreach($filelist as $file) {
+        foreach ($filelist as $file) {
             $file->extract($target);
         }
 

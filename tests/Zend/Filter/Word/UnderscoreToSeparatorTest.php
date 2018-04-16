@@ -52,5 +52,4 @@ class Zend_Filter_Word_UnderscoreToSeparatorTest extends PHPUnit\Framework\TestC
         $this->assertNotEquals($string, $filtered);
         $this->assertEquals('underscore:=:separated:=:words', $filtered);
     }
-
 }

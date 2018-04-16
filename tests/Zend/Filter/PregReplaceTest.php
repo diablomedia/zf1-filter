@@ -107,7 +107,7 @@ class Zend_Filter_PregReplaceTest extends PHPUnit\Framework\TestCase
     public function testExtendsPregReplace()
     {
         $startMatchPattern = '~(&gt;){3,}~i';
-        $filter = new XPregReplace();
+        $filter            = new XPregReplace();
         $this->assertEquals($startMatchPattern, $filter->getMatchPattern());
     }
 }

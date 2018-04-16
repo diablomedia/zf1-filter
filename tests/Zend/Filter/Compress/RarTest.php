@@ -49,7 +49,7 @@ class Zend_Filter_Compress_RarTest extends PHPUnit\Framework\TestCase
             dirname(__FILE__) . '/../_files/_compress'
         );
 
-        foreach($files as $file) {
+        foreach ($files as $file) {
             if (file_exists($file)) {
                 if (is_dir($file)) {
                     rmdir($file);
@@ -81,7 +81,7 @@ class Zend_Filter_Compress_RarTest extends PHPUnit\Framework\TestCase
             dirname(__FILE__) . '/../_files/_compress'
         );
 
-        foreach($files as $file) {
+        foreach ($files as $file) {
             if (file_exists($file)) {
                 if (is_dir($file)) {
                     rmdir($file);
@@ -106,7 +106,7 @@ class Zend_Filter_Compress_RarTest extends PHPUnit\Framework\TestCase
      */
     public function testBasicUsage()
     {
-        $filter  = new Zend_Filter_Compress_Rar(
+        $filter = new Zend_Filter_Compress_Rar(
             array(
                 'archive'  => dirname(__FILE__) . '/../_files/compressed.rar',
                 'target'   => dirname(__FILE__) . '/../_files/zipextracted.txt',
@@ -199,7 +199,7 @@ class Zend_Filter_Compress_RarTest extends PHPUnit\Framework\TestCase
         try {
             $filter->setTarget('/unknown/path/to/file.txt');
             $this->fails('Exception expected');
-        } catch(Zend_Filter_Exception $e) {
+        } catch (Zend_Filter_Exception $e) {
             $this->assertContains('does not exist', $e->getMessage());
         }
     }
@@ -230,7 +230,6 @@ class Zend_Filter_Compress_RarTest extends PHPUnit\Framework\TestCase
         $callback = array('Zend_Filter_Compress_RarTest', 'rarCompress');
         $filter->setCallback($callback);
         $this->assertEquals($callback, $filter->getCallback());
-
     }
 
     /**
@@ -240,7 +239,7 @@ class Zend_Filter_Compress_RarTest extends PHPUnit\Framework\TestCase
      */
     public function testRarCompressFile()
     {
-        $filter  = new Zend_Filter_Compress_Rar(
+        $filter = new Zend_Filter_Compress_Rar(
             array(
                 'archive'  => dirname(__FILE__) . '/../_files/compressed.rar',
                 'target'   => dirname(__FILE__) . '/../_files/zipextracted.txt',
@@ -267,7 +266,7 @@ class Zend_Filter_Compress_RarTest extends PHPUnit\Framework\TestCase
      */
     public function testRarCompressDirectory()
     {
-        $filter  = new Zend_Filter_Compress_Rar(
+        $filter = new Zend_Filter_Compress_Rar(
             array(
                 'archive'  => dirname(__FILE__) . '/../_files/compressed.rar',
                 'target'   => dirname(__FILE__) . '/../_files/_compress',

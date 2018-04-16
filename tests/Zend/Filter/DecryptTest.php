@@ -66,7 +66,7 @@ class Zend_Filter_DecryptTest extends PHPUnit\Framework\TestCase
             $this->markTestSkipped('Mcrypt extension not installed');
         }
 
-        $filter = new Zend_Filter_Decrypt(array('adapter' => 'Mcrypt'));
+        $filter         = new Zend_Filter_Decrypt(array('adapter' => 'Mcrypt'));
         $valuesExpected = array(
             'STRING' => 'STRING',
             'ABC1@3' => 'ABC1@3',
@@ -120,7 +120,8 @@ cAkcoMuBcgWhIn/46C1PAkEAzLK/ibrdMQLOdO4SuDgj/2nc53NZ3agl61ew8Os6
 d/fxzPfuO/bLpADozTAnYT9Hu3wPrQVLeAfCp0ojqH7DYg==
 -----END RSA PRIVATE KEY-----
 '),
-            $key);
+            $key
+        );
     }
 
 
@@ -181,8 +182,9 @@ d/fxzPfuO/bLpADozTAnYT9Hu3wPrQVLeAfCp0ojqH7DYg==
         $filter = new Zend_Filter_Decrypt(array('adapter' => 'Mcrypt', 'key' => 'testkey'));
         $filter->setVector('testvect');
         $filter->setEncryption(
-            array('mode' => MCRYPT_MODE_ECB,
-                  'algorithm' => MCRYPT_3DES));
+            array('mode'      => MCRYPT_MODE_ECB,
+                  'algorithm' => MCRYPT_3DES)
+        );
         $this->assertEquals(
             array(
                 'mode'                => MCRYPT_MODE_ECB,
@@ -233,7 +235,7 @@ d/fxzPfuO/bLpADozTAnYT9Hu3wPrQVLeAfCp0ojqH7DYg==
 
         $filter = new Zend_Filter_Encrypt(array('adapter' => 'Openssl'));
         $filter->setPublicKey(dirname(__FILE__) . '/_files/publickey.pem');
-        $output = $filter->filter('teststring');
+        $output       = $filter->filter('teststring');
         $envelopekeys = $filter->getEnvelopeKey();
         $this->assertNotEquals('teststring', $output);
 

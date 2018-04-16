@@ -82,10 +82,10 @@ class Zend_Filter_File_RenameTest extends PHPUnit\Framework\TestCase
     {
         $this->_filesPath = dirname(__FILE__) . DIRECTORY_SEPARATOR
                           . '..' . DIRECTORY_SEPARATOR . '_files' . DIRECTORY_SEPARATOR;
-        $this->_origFile  = $this->_filesPath . 'original.file';
-        $this->_oldFile   = $this->_filesPath . 'testfile.txt';
-        $this->_newFile   = $this->_filesPath . 'newfile.xml';
-        $this->_newDir    = $this->_filesPath . DIRECTORY_SEPARATOR . '_testDir2';
+        $this->_origFile   = $this->_filesPath . 'original.file';
+        $this->_oldFile    = $this->_filesPath . 'testfile.txt';
+        $this->_newFile    = $this->_filesPath . 'newfile.xml';
+        $this->_newDir     = $this->_filesPath . DIRECTORY_SEPARATOR . '_testDir2';
         $this->_newDirFile = $this->_newDir . DIRECTORY_SEPARATOR . 'testfile.txt';
         if (file_exists($this->_origFile)) {
             unlink($this->_origFile);
@@ -135,11 +135,13 @@ class Zend_Filter_File_RenameTest extends PHPUnit\Framework\TestCase
     {
         $filter = new Zend_Filter_File_Rename($this->_newFile);
 
-        $this->assertEquals(array(0 =>
+        $this->assertEquals(
+            array(0 =>
             array('source'    => '*',
                   'target'    => $this->_newFile,
                   'overwrite' => false)),
-            $filter->getFile());
+            $filter->getFile()
+        );
         $this->assertEquals($this->_newFile, $filter->filter($this->_oldFile));
         $this->assertEquals('falsefile', $filter->filter('falsefile'));
     }
@@ -171,8 +173,8 @@ class Zend_Filter_File_RenameTest extends PHPUnit\Framework\TestCase
     public function testConstructFullOptionsArray()
     {
         $filter = new Zend_Filter_File_Rename(array(
-            'source' => $this->_oldFile,
-            'target' => $this->_newFile,
+            'source'    => $this->_oldFile,
+            'target'    => $this->_newFile,
             'overwrite' => true,
             'unknown'   => false));
 

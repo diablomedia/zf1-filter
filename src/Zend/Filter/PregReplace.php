@@ -44,14 +44,14 @@ class Zend_Filter_PregReplace implements Zend_Filter_Interface
      *
      * @var bool
      */
-    static protected $_unicodeSupportEnabled = null;
+    protected static $_unicodeSupportEnabled = null;
 
     /**
      * Is Unicode Support Enabled Utility function
      *
      * @return bool
      */
-    static public function isUnicodeSupportEnabled()
+    public static function isUnicodeSupportEnabled()
     {
         if (self::$_unicodeSupportEnabled === null) {
             self::_determineUnicodeSupport();
@@ -65,7 +65,7 @@ class Zend_Filter_PregReplace implements Zend_Filter_Interface
      *
      * @return bool
      */
-    static protected function _determineUnicodeSupport()
+    protected static function _determineUnicodeSupport()
     {
         self::$_unicodeSupportEnabled = (@preg_match('/\pL/u', 'a')) ? true : false;
     }
@@ -83,7 +83,7 @@ class Zend_Filter_PregReplace implements Zend_Filter_Interface
     {
         if ($options instanceof Zend_Config) {
             $options = $options->toArray();
-        } else if (!is_array($options)) {
+        } elseif (!is_array($options)) {
             $options = func_get_args();
             $temp    = array();
             if (!empty($options)) {
@@ -164,5 +164,4 @@ class Zend_Filter_PregReplace implements Zend_Filter_Interface
 
         return preg_replace($this->_matchPattern, $this->_replacement, $value);
     }
-
 }

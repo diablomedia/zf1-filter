@@ -32,7 +32,6 @@
  */
 class TestNamespace_StringEquals extends Zend_Validate_Abstract
 {
-
     const NOT_EQUALS = 'stringNotEquals';
 
     /**
@@ -67,5 +66,4 @@ class TestNamespace_StringEquals extends Zend_Validate_Abstract
 
         return true;
     }
-
 }

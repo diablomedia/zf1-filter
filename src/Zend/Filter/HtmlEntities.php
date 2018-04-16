@@ -59,8 +59,8 @@ class Zend_Filter_HtmlEntities implements Zend_Filter_Interface
     {
         if ($options instanceof Zend_Config) {
             $options = $options->toArray();
-        } else if (!is_array($options)) {
-            $options = func_get_args();
+        } elseif (!is_array($options)) {
+            $options            = func_get_args();
             $temp['quotestyle'] = array_shift($options);
             if (!empty($options)) {
                 $temp['charset'] = array_shift($options);
@@ -119,7 +119,7 @@ class Zend_Filter_HtmlEntities implements Zend_Filter_Interface
      */
     public function getEncoding()
     {
-         return $this->_encoding;
+        return $this->_encoding;
     }
 
     /**

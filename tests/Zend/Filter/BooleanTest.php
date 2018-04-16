@@ -575,7 +575,9 @@ class Zend_Filter_BooleanTest extends PHPUnit\Framework\TestCase
     public function testSettingLocalePerConstructorString()
     {
         $filter = new Zend_Filter_Boolean(
-            'all', true, 'de'
+            'all',
+            true,
+            'de'
         );
 
         $this->assertFalse($filter->filter(false));

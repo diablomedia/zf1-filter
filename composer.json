@@ -21,8 +21,11 @@
     },
     "autoload": {
         "psr-0": {
-            "Zend_": "src/"
-        }
+            "Zend_Filter_": "src/"
+        },
+        "classmap": [
+            "src/Zend/Filter.php"
+        ]
     },
     "autoload-dev": {
         "psr-0": {
@@ -40,7 +43,10 @@
         "phpunit/phpunit": "^6.0",
         "phpstan/phpstan": "^0.9.2",
         "jetbrains/phpstorm-stubs": "dev-phpstan",
-        "pear/archive_tar": "^1.4"
+        "pear/archive_tar": "^1.4",
+        "friendsofphp/php-cs-fixer": "^2.11",
+        "maglnet/composer-require-checker": "^0.1.6 | ^0.2.1",
+        "phpro/grumphp": "^0.14.0"
     },
     "include-path": [
         "src/"
@@ -49,11 +55,23 @@
         "exclude": ["/tests"]
     },
     "scripts": {
-        "test": "phpunit ./tests",
-        "test-with-coverage": "phpunit --coverage-clover=clover.xml ./tests",
-        "phpstan": "phpstan analyze -l6 -c phpstan.neon --no-progress ./src --ansi"
+        "test": "phpunit",
+        "test-with-coverage": "phpunit --coverage-clover=clover.xml",
+        "phpstan": "phpstan analyze -l6 -c phpstan.neon --no-progress ./ --ansi",
+        "style-check": "php-cs-fixer fix --dry-run -vv"
     },
     "suggest": {
+        "ext-iconv": "Optionally used in the Zend_Filter_HtmlEntities filter",
+        "ext-ctype": "Used in the Zend_Filter_Encrypt_Openssl filter",
+        "ext-mbstring": "Optionally used in the Zend_Filter_StringToLower/Upper filters",
+        "ext-mcrypt": "Used in the Zend_Filter_Encrypt_Mcrypt filter",
+        "ext-zlib": "Used in the Zend_Filter_Compress_Gz filter",
+        "ext-openssl": "Used in the Zend_Filter_Encrypt_Openssl filter",
+        "ext-bz2": "Used in the Zend_Filter_Compress_Bz2 and (optionally) in the Zend_Filter_Compress_Tar filters",
+        "ext-zip": "Used in the Zend_Filter_Compress_Zip filter",
+        "ext-rar": "Used in the Zend_Filter_Compress_Rar filter",
+        "ext-lzf": "Used in the Zend_Filter_Compress_Lzf filter",
+        "pear/archive_tar": "For the Zend_Filter_Compress_Tar filter",
         "diablomedia/zendframework1-filter-input": "Provides the separate Zend_Filter_Input component"
     }
 }

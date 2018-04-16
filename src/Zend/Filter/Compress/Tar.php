@@ -39,9 +39,9 @@ class Zend_Filter_Compress_Tar extends Zend_Filter_Compress_CompressAbstract
      * @var array
      */
     protected $_options = array(
-        'archive'  => null,
-        'target'   => '.',
-        'mode'     => null,
+        'archive' => null,
+        'target'  => '.',
+        'mode'    => null,
     );
 
     /**
@@ -80,7 +80,7 @@ class Zend_Filter_Compress_Tar extends Zend_Filter_Compress_CompressAbstract
      */
     public function setArchive($archive)
     {
-        $archive = str_replace(array('/', '\\'), DIRECTORY_SEPARATOR, $archive);
+        $archive                   = str_replace(array('/', '\\'), DIRECTORY_SEPARATOR, $archive);
         $this->_options['archive'] = (string) $archive;
 
         return $this;
@@ -108,7 +108,7 @@ class Zend_Filter_Compress_Tar extends Zend_Filter_Compress_CompressAbstract
             throw new Zend_Filter_Exception("The directory '$target' does not exist");
         }
 
-        $target = str_replace(array('/', '\\'), DIRECTORY_SEPARATOR, $target);
+        $target                   = str_replace(array('/', '\\'), DIRECTORY_SEPARATOR, $target);
         $this->_options['target'] = (string) $target;
         return $this;
     }
@@ -155,7 +155,7 @@ class Zend_Filter_Compress_Tar extends Zend_Filter_Compress_CompressAbstract
         if (!file_exists($content)) {
             $file = $this->getTarget();
             if (is_dir($file)) {
-                $file .= DIRECTORY_SEPARATOR . "tar.tmp";
+                $file .= DIRECTORY_SEPARATOR . 'tar.tmp';
             }
 
             $result = file_put_contents($file, $content);
@@ -182,7 +182,7 @@ class Zend_Filter_Compress_Tar extends Zend_Filter_Compress_CompressAbstract
         }
 
         /** @var bool $result Docblock of Archive_Tar::create is incorrect */
-        $result  = $archive->create($content);
+        $result = $archive->create($content);
         if ($result === false) {
             throw new Zend_Filter_Exception('Error creating the Tar archive');
         }

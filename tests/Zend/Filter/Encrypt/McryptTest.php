@@ -60,7 +60,7 @@ class Zend_Filter_Encrypt_McryptTest extends PHPUnit\Framework\TestCase
      */
     public function testBasicMcrypt()
     {
-        $filter = new Zend_Filter_Encrypt_Mcrypt(array('key' => 'testkey'));
+        $filter         = new Zend_Filter_Encrypt_Mcrypt(array('key' => 'testkey'));
         $valuesExpected = array(
             'STRING' => 'STRING',
             'ABC1@3' => 'ABC1@3',
@@ -104,13 +104,13 @@ class Zend_Filter_Encrypt_McryptTest extends PHPUnit\Framework\TestCase
         $filter = new Zend_Filter_Encrypt_Mcrypt(array('key' => 'testkey'));
         $filter->setVector('testvect');
         $this->assertEquals(
-            array('key' => 'testkey',
-                  'algorithm' => MCRYPT_BLOWFISH,
+            array('key'                 => 'testkey',
+                  'algorithm'           => MCRYPT_BLOWFISH,
                   'algorithm_directory' => '',
-                  'mode' => MCRYPT_MODE_CBC,
-                  'mode_directory' => '',
-                  'vector' => 'testvect',
-                  'salt' => false),
+                  'mode'                => MCRYPT_MODE_CBC,
+                  'mode_directory'      => '',
+                  'vector'              => 'testvect',
+                  'salt'                => false),
             $filter->getEncryption()
         );
     }
@@ -125,16 +125,17 @@ class Zend_Filter_Encrypt_McryptTest extends PHPUnit\Framework\TestCase
         $filter = new Zend_Filter_Encrypt_Mcrypt(array('key' => 'testkey'));
         $filter->setVector('testvect');
         $filter->setEncryption(
-            array('mode' => MCRYPT_MODE_ECB,
-                  'algorithm' => MCRYPT_3DES));
+            array('mode'      => MCRYPT_MODE_ECB,
+                  'algorithm' => MCRYPT_3DES)
+        );
         $this->assertEquals(
-            array('key' => 'testkey',
-                  'algorithm' => MCRYPT_3DES,
+            array('key'                 => 'testkey',
+                  'algorithm'           => MCRYPT_3DES,
                   'algorithm_directory' => '',
-                  'mode' => MCRYPT_MODE_ECB,
-                  'mode_directory' => '',
-                  'vector' => 'testvect',
-                  'salt' => false),
+                  'mode'                => MCRYPT_MODE_ECB,
+                  'mode_directory'      => '',
+                  'vector'              => 'testvect',
+                  'salt'                => false),
             $filter->getEncryption()
         );
     }
@@ -162,7 +163,7 @@ class Zend_Filter_Encrypt_McryptTest extends PHPUnit\Framework\TestCase
     public function testConstructionWithStringKey()
     {
         $filter = new Zend_Filter_Encrypt_Mcrypt('testkey');
-        $data = $filter->getEncryption();
+        $data   = $filter->getEncryption();
         $this->assertEquals('testkey', $data['key']);
     }
 

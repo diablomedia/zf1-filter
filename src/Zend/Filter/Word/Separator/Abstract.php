@@ -28,7 +28,6 @@
  */
 abstract class Zend_Filter_Word_Separator_Abstract extends Zend_Filter_PregReplace
 {
-
     protected $_separator = null;
 
     /**
@@ -66,5 +65,4 @@ abstract class Zend_Filter_Word_Separator_Abstract extends Zend_Filter_PregRepla
     {
         return $this->_separator;
     }
-
 }

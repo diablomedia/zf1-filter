@@ -52,9 +52,9 @@ class Zend_Filter_CompressTest extends PHPUnit\Framework\TestCase
      */
     public function testBasicUsage()
     {
-        $filter  = new Zend_Filter_Compress('bz2');
+        $filter = new Zend_Filter_Compress('bz2');
 
-        $text     = 'compress me';
+        $text       = 'compress me';
         $compressed = $filter->filter($text);
         $this->assertNotEquals($text, $compressed);
 
@@ -100,7 +100,7 @@ class Zend_Filter_CompressTest extends PHPUnit\Framework\TestCase
             'archive'   => 'test.txt',
         ));
         $this->assertEquals(
-            array('blocksize' => 6, 'archive'   => 'test.txt'),
+            array('blocksize' => 6, 'archive' => 'test.txt'),
             $filter->getAdapterOptions()
         );
         $adapter = $filter->getAdapter();
@@ -123,7 +123,7 @@ class Zend_Filter_CompressTest extends PHPUnit\Framework\TestCase
         try {
             $filter->setBlocksize(15);
             $this->fail('Exception expected');
-        } catch(Zend_Filter_Exception $e) {
+        } catch (Zend_Filter_Exception $e) {
             $this->assertContains('must be between', $e->getMessage());
         }
     }
@@ -149,7 +149,7 @@ class Zend_Filter_CompressTest extends PHPUnit\Framework\TestCase
      */
     public function testCompressToFile()
     {
-        $filter   = new Zend_Filter_Compress('bz2');
+        $filter  = new Zend_Filter_Compress('bz2');
         $archive = dirname(__FILE__) . '/../_files/compressed.bz2';
         $filter->setArchive($archive);
 
@@ -184,7 +184,7 @@ class Zend_Filter_CompressTest extends PHPUnit\Framework\TestCase
      */
     public function testGetAdapter()
     {
-        $filter = new Zend_Filter_Compress('bz2');
+        $filter  = new Zend_Filter_Compress('bz2');
         $adapter = $filter->getAdapter();
         $this->assertTrue($adapter instanceof Zend_Filter_Compress_CompressInterface);
         $this->assertEquals('Bz2', $filter->getAdapterName());
@@ -220,7 +220,7 @@ class Zend_Filter_CompressTest extends PHPUnit\Framework\TestCase
      */
     public function testDecompressArchive()
     {
-        $filter   = new Zend_Filter_Compress('bz2');
+        $filter  = new Zend_Filter_Compress('bz2');
         $archive = dirname(__FILE__) . '/../_files/compressed.bz2';
         $filter->setArchive($archive);
 

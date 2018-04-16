@@ -89,9 +89,9 @@ class Zend_Filter_NormalizedToLocalized implements Zend_Filter_Interface
         if (is_array($value)) {
             $date = new Zend_Date($value, $this->_options['locale']);
             return $date->toString($this->_options['date_format']);
-        } else if ($this->_options['precision'] === 0) {
+        } elseif ($this->_options['precision'] === 0) {
             return Zend_Locale_Format::toInteger($value, $this->_options);
-        } else if ($this->_options['precision'] === null) {
+        } elseif ($this->_options['precision'] === null) {
             return Zend_Locale_Format::toFloat($value, $this->_options);
         }
 

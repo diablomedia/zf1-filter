@@ -45,7 +45,7 @@ class Zend_Filter_Encrypt_OpensslTest extends PHPUnit\Framework\TestCase
      */
     public function testBasicOpenssl()
     {
-        $filter = new Zend_Filter_Encrypt_Openssl(dirname(__FILE__) . '/../_files/publickey.pem');
+        $filter         = new Zend_Filter_Encrypt_Openssl(dirname(__FILE__) . '/../_files/publickey.pem');
         $valuesExpected = array(
             'STRING' => 'STRING',
             'ABC1@3' => 'ABC1@3',
@@ -74,7 +74,8 @@ FDD4V7XpcNU63QIDAQABMA0GCSqGSIb3DQEBBAUAA4GBAFQ22OU/PAN7rRDr23NS
 PIDs9E7uuizAKDhRRRvho8BS
 -----END CERTIFICATE-----
 '),
-            $key);
+            $key
+        );
         foreach ($valuesExpected as $input => $output) {
             $this->assertNotEquals($output, $filter->encrypt($input));
         }
@@ -89,7 +90,7 @@ PIDs9E7uuizAKDhRRRvho8BS
     {
         $filter = new Zend_Filter_Encrypt_Openssl();
         $filter->setPublicKey(dirname(__FILE__) . '/../_files/publickey.pem');
-        $output = $filter->encrypt('teststring');
+        $output       = $filter->encrypt('teststring');
         $envelopekeys = $filter->getEnvelopeKey();
         $this->assertNotEquals('teststring', $output);
 
@@ -114,7 +115,7 @@ bK22CwD/l7SMBOz4M9XH0Jb0OhNxLza4XMDu0ANMIpnkn1KOcmQ4gB8fmAbBt');
     {
         $filter = new Zend_Filter_Encrypt_Openssl();
         $filter->setPublicKey(dirname(__FILE__) . '/../_files/publickey.pem');
-        $output = $filter->encrypt('teststring');
+        $output       = $filter->encrypt('teststring');
         $envelopekeys = $filter->getEnvelopeKey();
         $this->assertNotEquals('teststring', $output);
 
@@ -245,9 +246,9 @@ tmnFUSkH2zwnkXQfPUxg9aV7TmGQv/3TkK1SziyDyNm7GwtyIlfcigCCRz3uc77U
 Izcez5wgmkpNElg/D7/VCd9E+grTfPYNmuTVccGOes+n8ISJJdW0vYX1xwWv5l
 bK22CwD/l7SMBOz4M9XH0Jb0OhNxLza4XMDu0ANMIpnkn1KOcmQ4gB8fmAbBt';
         $filter = new Zend_Filter_Encrypt_Openssl(array(
-            'public' => dirname(__FILE__) . '/../_files/publickey.pem',
+            'public'     => dirname(__FILE__) . '/../_files/publickey.pem',
             'passphrase' => $passphrase,
-            'private' => dirname(__FILE__) . '/../_files/privatekey.pem'));
+            'private'    => dirname(__FILE__) . '/../_files/privatekey.pem'));
         $public = $filter->getPublicKey();
         $this->assertNotEmpty($public);
         $this->assertEquals($passphrase, $filter->getPassphrase());

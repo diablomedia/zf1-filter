@@ -48,7 +48,7 @@ class Zend_Filter_Word_UnderscoreToCamelCaseTest extends PHPUnit\Framework\TestC
      */
     public function testSomeFilterValues()
     {
-        $filter   = new Zend_Filter_Word_UnderscoreToCamelCase();
+        $filter = new Zend_Filter_Word_UnderscoreToCamelCase();
 
         $string   = 'zend_framework';
         $filtered = $filter->filter($string);

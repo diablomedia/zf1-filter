@@ -43,7 +43,7 @@ class Zend_Filter_StripNewlinesTest extends PHPUnit\Framework\TestCase
      *
      * @return void
      */
-    public function setUp ()
+    public function setUp()
     {
         $this->_filter = new Zend_Filter_StripNewlines();
     }
@@ -53,16 +53,16 @@ class Zend_Filter_StripNewlinesTest extends PHPUnit\Framework\TestCase
      *
      * @return void
      */
-    public function testBasic ()
+    public function testBasic()
     {
         $valuesExpected = array(
-            '' => '',
-            "\n" => '',
-            "\r" => '',
-            "\r\n" => '',
-            '\n' => '\n',
-            '\r' => '\r',
-            '\r\n' => '\r\n',
+            ''                                    => '',
+            "\n"                                  => '',
+            "\r"                                  => '',
+            "\r\n"                                => '',
+            '\n'                                  => '\n',
+            '\r'                                  => '\r',
+            '\r\n'                                => '\r\n',
             "Some text\nthat we have\r\nstuff in" => 'Some textthat we havestuff in'
         );
         foreach ($valuesExpected as $input => $output) {

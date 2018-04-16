@@ -111,7 +111,7 @@ class Zend_Filter_Encrypt_Mcrypt implements Zend_Filter_Encrypt_Interface
             throw new Zend_Filter_Exception('Invalid options argument provided to filter');
         }
 
-        $options = $options + $this->getEncryption();
+        $options    = $options + $this->getEncryption();
         $algorithms = mcrypt_list_algorithms($options['algorithm_directory']);
         if (!in_array($options['algorithm'], $algorithms)) {
             throw new Zend_Filter_Exception("The algorithm '{$options['algorithm']}' is not supported");
@@ -170,7 +170,7 @@ class Zend_Filter_Encrypt_Mcrypt implements Zend_Filter_Encrypt_Interface
                 }
             }
             $vector = mcrypt_create_iv($size, $method);
-        } else if (strlen($vector) != $size) {
+        } elseif (strlen($vector) != $size) {
             throw new Zend_Filter_Exception('The given vector has a wrong size for the set algorithm');
         }
 
@@ -222,7 +222,7 @@ class Zend_Filter_Encrypt_Mcrypt implements Zend_Filter_Encrypt_Interface
             $value    = $compress->filter($value);
         }
 
-        $cipher  = $this->_openCipher();
+        $cipher = $this->_openCipher();
         $this->_initCipher($cipher);
         $encrypted = mcrypt_generic($cipher, $value);
         mcrypt_generic_deinit($cipher);
@@ -278,7 +278,8 @@ class Zend_Filter_Encrypt_Mcrypt implements Zend_Filter_Encrypt_Interface
             $this->_encryption['algorithm'],
             $this->_encryption['algorithm_directory'],
             $this->_encryption['mode'],
-            $this->_encryption['mode_directory']);
+            $this->_encryption['mode_directory']
+        );
 
         if ($cipher === false) {
             throw new Zend_Filter_Exception('Mcrypt can not be opened with your settings');
@@ -316,7 +317,7 @@ class Zend_Filter_Encrypt_Mcrypt implements Zend_Filter_Encrypt_Interface
             $this->_srand();
             $keysize = mcrypt_enc_get_key_size($cipher);
             $key     = substr(md5($key), 0, $keysize);
-        } else if (!in_array(strlen($key), $keysizes)) {
+        } elseif (!in_array(strlen($key), $keysizes)) {
             throw new Zend_Filter_Exception('The given key has a wrong size for the set algorithm');
         }
 

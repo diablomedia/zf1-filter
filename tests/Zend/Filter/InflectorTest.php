@@ -68,7 +68,7 @@ class Zend_Filter_InflectorTest extends PHPUnit\Framework\TestCase
     public function testSetPluginLoaderAllowsSettingAlternatePluginLoader()
     {
         $defaultLoader = $this->inflector->getPluginLoader();
-        $loader = new Zend_Loader_PluginLoader();
+        $loader        = new Zend_Loader_PluginLoader();
         $this->inflector->setPluginLoader($loader);
         $receivedLoader = $this->inflector->getPluginLoader();
         $this->assertNotSame($defaultLoader, $receivedLoader);
@@ -328,10 +328,10 @@ class Zend_Filter_InflectorTest extends PHPUnit\Framework\TestCase
     public function getOptions()
     {
         $options = array(
-            'target' => '$controller/$action.$suffix',
-            'throwTargetExceptionsOn' => true,
+            'target'                      => '$controller/$action.$suffix',
+            'throwTargetExceptionsOn'     => true,
             'targetReplacementIdentifier' => '$',
-            'rules' => array(
+            'rules'                       => array(
                 ':controller' => array(
                     'rule1' => 'Word_CamelCaseToUnderscore',
                     'rule2' => 'StringToLower',
@@ -385,14 +385,14 @@ class Zend_Filter_InflectorTest extends PHPUnit\Framework\TestCase
 
     public function testPassingConfigObjectToConstructorSetsStateAndRules()
     {
-        $config = $this->getConfig();
+        $config    = $this->getConfig();
         $inflector = new Zend_Filter_Inflector($config);
         $this->_testOptions($inflector);
     }
 
     public function testSetConfigSetsStateAndRules()
     {
-        $config = $this->getConfig();
+        $config    = $this->getConfig();
         $inflector = new Zend_Filter_Inflector();
         $inflector->setConfig($config);
         $this->_testOptions($inflector);
@@ -405,7 +405,6 @@ class Zend_Filter_InflectorTest extends PHPUnit\Framework\TestCase
      */
     public function testCheckInflectorWithPregBackreferenceLikeParts()
     {
-
         $this->inflector = new Zend_Filter_Inflector(
             ':moduleDir' . DIRECTORY_SEPARATOR . ':controller' . DIRECTORY_SEPARATOR . ':action.:suffix',
             array(
@@ -422,7 +421,7 @@ class Zend_Filter_InflectorTest extends PHPUnit\Framework\TestCase
         try {
             $filtered = $this->inflector->filter(array(
                 'controller' => 'FooBar',
-                'action' => 'MooToo'
+                'action'     => 'MooToo'
                 ));
             $this->assertEquals($filtered, 'C:\htdocs\public\cache\00\01\42\app\modules' . DIRECTORY_SEPARATOR . 'foo-bar' . DIRECTORY_SEPARATOR . 'Moo-Too.phtml');
         } catch (Exception $e) {
@@ -467,7 +466,7 @@ class Zend_Filter_InflectorTest extends PHPUnit\Framework\TestCase
         $rules = $this->inflector->getRules('controller');
         $this->assertEquals(3, count($rules));
         $this->_context = 'StringToLower';
-        $this->inflector->setStaticRuleReference('context' , $this->_context);
+        $this->inflector->setStaticRuleReference('context', $this->_context);
         $this->inflector->addFilterRule('controller', array('Alpha', 'StringToLower'));
         $rules = $this->inflector->getRules('controller');
         $this->assertEquals(5, count($rules));
@@ -478,7 +477,7 @@ class Zend_Filter_InflectorTest extends PHPUnit\Framework\TestCase
      */
     public function testPassingArrayToConstructorSetsStateAndRules()
     {
-        $options = $this->getOptions();
+        $options   = $this->getOptions();
         $inflector = new Zend_Filter_Inflector($options);
         $this->_testOptions($inflector);
     }
@@ -488,7 +487,7 @@ class Zend_Filter_InflectorTest extends PHPUnit\Framework\TestCase
      */
     public function testPassingArrayToSetConfigSetsStateAndRules()
     {
-        $options = $this->getOptions();
+        $options   = $this->getOptions();
         $inflector = new Zend_Filter_Inflector();
         $inflector->setOptions($options);
         $this->_testOptions($inflector);
@@ -499,7 +498,7 @@ class Zend_Filter_InflectorTest extends PHPUnit\Framework\TestCase
      */
     public function testPassingZendConfigObjectToConstructorSetsStateAndRules()
     {
-        $config = $this->getConfig();
+        $config    = $this->getConfig();
         $inflector = new Zend_Filter_Inflector($config);
         $this->_testOptions($inflector);
     }
@@ -509,7 +508,7 @@ class Zend_Filter_InflectorTest extends PHPUnit\Framework\TestCase
      */
     public function testPassingZendConfigObjectToSetConfigSetsStateAndRules()
     {
-        $config = $this->getConfig();
+        $config    = $this->getConfig();
         $inflector = new Zend_Filter_Inflector();
         $inflector->setOptions($config);
         $this->_testOptions($inflector);

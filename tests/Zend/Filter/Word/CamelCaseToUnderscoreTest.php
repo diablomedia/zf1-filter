@@ -45,21 +45,21 @@ class Zend_Filter_Word_CamelCaseToUnderscoreTest extends PHPUnit\Framework\TestC
 
     public function testFilterSeperatingNumbersToUnterscore()
     {
-        $string = 'PaTitle';
+        $string   = 'PaTitle';
         $filter   = new Zend_Filter_Word_CamelCaseToUnderscore();
         $filtered = $filter->filter($string);
 
         $this->assertNotEquals($string, $filtered);
         $this->assertEquals('Pa_Title', $filtered);
 
-        $string = 'Pa2Title';
+        $string   = 'Pa2Title';
         $filter   = new Zend_Filter_Word_CamelCaseToUnderscore();
         $filtered = $filter->filter($string);
 
         $this->assertNotEquals($string, $filtered);
         $this->assertEquals('Pa2_Title', $filtered);
 
-        $string = 'Pa2aTitle';
+        $string   = 'Pa2aTitle';
         $filter   = new Zend_Filter_Word_CamelCaseToUnderscore();
         $filtered = $filter->filter($string);
 

@@ -52,7 +52,7 @@ class Zend_Filter_Compress_Bz2Test extends PHPUnit\Framework\TestCase
      */
     public function testBasicUsage()
     {
-        $filter  = new Zend_Filter_Compress_Bz2();
+        $filter = new Zend_Filter_Compress_Bz2();
 
         $content = $filter->compress('compress me');
         $this->assertNotEquals('compress me', $content);
@@ -92,7 +92,7 @@ class Zend_Filter_Compress_Bz2Test extends PHPUnit\Framework\TestCase
      */
     public function testBz2GetSetOptionsInConstructor()
     {
-        $filter2= new Zend_Filter_Compress_Bz2(array('blocksize' => 8));
+        $filter2 = new Zend_Filter_Compress_Bz2(array('blocksize' => 8));
         $this->assertEquals(array('blocksize' => 8, 'archive' => null), $filter2->getOptions());
     }
 
@@ -111,7 +111,7 @@ class Zend_Filter_Compress_Bz2Test extends PHPUnit\Framework\TestCase
         try {
             $filter->setBlocksize(15);
             $this->fail('Exception expected');
-        } catch(Zend_Filter_Exception $e) {
+        } catch (Zend_Filter_Exception $e) {
             $this->assertContains('must be between', $e->getMessage());
         }
     }
@@ -137,7 +137,7 @@ class Zend_Filter_Compress_Bz2Test extends PHPUnit\Framework\TestCase
      */
     public function testBz2CompressToFile()
     {
-        $filter   = new Zend_Filter_Compress_Bz2();
+        $filter  = new Zend_Filter_Compress_Bz2();
         $archive = dirname(__FILE__) . '/../_files/compressed.bz2';
         $filter->setArchive($archive);
 
@@ -172,7 +172,7 @@ class Zend_Filter_Compress_Bz2Test extends PHPUnit\Framework\TestCase
      */
     public function testBz2DecompressArchive()
     {
-        $filter   = new Zend_Filter_Compress_Bz2();
+        $filter  = new Zend_Filter_Compress_Bz2();
         $archive = dirname(__FILE__) . '/../_files/compressed.bz2';
         $filter->setArchive($archive);
 

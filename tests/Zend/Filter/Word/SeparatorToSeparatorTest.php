@@ -62,5 +62,4 @@ class Zend_Filter_Word_SeparatorToSeparatorTest extends PHPUnit\Framework\TestCa
         $this->assertNotEquals($string, $filtered);
         $this->assertEquals('dash?separated?words', $filtered);
     }
-
 }

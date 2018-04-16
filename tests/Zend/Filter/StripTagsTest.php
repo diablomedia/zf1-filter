@@ -415,7 +415,7 @@ class Zend_Filter_StripTagsTest extends PHPUnit\Framework\TestCase
     public function testSpecifyingCommentsAllowedFiltersCommentsContainingTagsAndLinebreaks()
     {
         $input    = "<br> test <p> text </p> with <!-- comments --> and <!-- hidd\n\nen <br> -->";
-        $expected = " test  text  with  and ";
+        $expected = ' test  text  with  and ';
         $this->_filter->setCommentsAllowed(true);
         $this->assertEquals($expected, $this->_filter->filter($input));
     }
@@ -505,9 +505,9 @@ class Zend_Filter_StripTagsTest extends PHPUnit\Framework\TestCase
         $expected = 'äöüäöü';
         $this->assertEquals($expected, $this->_filter->filter($input));
 
-        $input    = 'äöü<!-- a comment -->äöü';
-        $input    = iconv("UTF-8", "ISO-8859-1", $input);
-        $output   = $this->_filter->filter($input);
+        $input  = 'äöü<!-- a comment -->äöü';
+        $input  = iconv('UTF-8', 'ISO-8859-1', $input);
+        $output = $this->_filter->filter($input);
         $this->assertNotEmpty($output);
     }
 
@@ -520,9 +520,9 @@ class Zend_Filter_StripTagsTest extends PHPUnit\Framework\TestCase
         $expected = 'äöüäöü';
         $this->assertEquals($expected, $this->_filter->filter($input));
 
-        $input    = 'äöü<!-- a comment -->äöü';
-        $input    = iconv("UTF-8", "ISO-8859-1", $input);
-        $output   = $this->_filter->filter($input);
+        $input  = 'äöü<!-- a comment -->äöü';
+        $input  = iconv('UTF-8', 'ISO-8859-1', $input);
+        $output = $this->_filter->filter($input);
         $this->assertNotEmpty($output);
     }
 
@@ -551,7 +551,7 @@ class Zend_Filter_StripTagsTest extends PHPUnit\Framework\TestCase
      */
     public function testMultiParamArray()
     {
-        $filter = new Zend_Filter_StripTags(array("a","b","hr"),array(),true);
+        $filter = new Zend_Filter_StripTags(array('a','b','hr'), array(), true);
 
         $input    = 'test <a /> test <div>div-content</div>';
         $expected = 'test <a /> test div-content';
@@ -565,7 +565,7 @@ class Zend_Filter_StripTagsTest extends PHPUnit\Framework\TestCase
     {
         $filter = new Zend_Filter_StripTags(
             array(
-                'allowTags' => 'img',
+                'allowTags'    => 'img',
                 'allowAttribs' => array('width', 'height', 'src')
             )
         );
@@ -590,8 +590,8 @@ class Zend_Filter_StripTagsTest extends PHPUnit\Framework\TestCase
      */
     public function testFilterCanAllowHyphenatedAttributeNames()
     {
-        $input     = '<li data-disallowed="no!" data-name="Test User" data-id="11223"></li>';
-        $expected  = '<li data-name="Test User" data-id="11223"></li>';
+        $input    = '<li data-disallowed="no!" data-name="Test User" data-id="11223"></li>';
+        $expected = '<li data-name="Test User" data-id="11223"></li>';
 
         $this->_filter->setTagsAllowed('li');
         $this->_filter->setAttributesAllowed(array('data-id','data-name'));

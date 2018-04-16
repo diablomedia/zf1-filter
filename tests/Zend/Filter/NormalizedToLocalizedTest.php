@@ -38,7 +38,7 @@ class Zend_Filter_NormalizedToLocalizedTest extends PHPUnit\Framework\TestCase
      */
     public function testNumberLocalization()
     {
-        $filter = new Zend_Filter_NormalizedToLocalized(array('locale' => 'de'));
+        $filter         = new Zend_Filter_NormalizedToLocalized(array('locale' => 'de'));
         $valuesExpected = array(
             1  => '0',
             2  => 0,
@@ -79,45 +79,45 @@ class Zend_Filter_NormalizedToLocalizedTest extends PHPUnit\Framework\TestCase
      */
     public function testDateLocalizationWithoutParameters()
     {
-        $filter = new Zend_Filter_NormalizedToLocalized(array('locale' => 'de', 'date_format' => 'HH:mm:ss'));
+        $filter            = new Zend_Filter_NormalizedToLocalized(array('locale' => 'de', 'date_format' => 'HH:mm:ss'));
         $valuesExpected[1] = array(
-            'hour'         => '11',
-            'minute'       => '22',
-            'second'       => '33');
+            'hour'   => '11',
+            'minute' => '22',
+            'second' => '33');
         $valuesReceived[1] = '11:22:33';
 
         foreach ($valuesExpected as $key => $value) {
             $this->assertEquals($valuesReceived[$key], $filter->filter($value), 'failed filter of ' . var_export($value, 1));
         }
 
-        $filter = new Zend_Filter_NormalizedToLocalized(array('locale' => 'de', 'date_format' => 'dd.MM.yyyy'));
+        $filter            = new Zend_Filter_NormalizedToLocalized(array('locale' => 'de', 'date_format' => 'dd.MM.yyyy'));
         $valuesExpected[1] = array(
-            'date_format'  => 'dd.MM.yyyy',
-            'locale'       => 'de',
-            'day'          => '20',
-            'month'        => '04',
-            'year'         => '2009');
+            'date_format' => 'dd.MM.yyyy',
+            'locale'      => 'de',
+            'day'         => '20',
+            'month'       => '04',
+            'year'        => '2009');
         $valuesReceived[1] = '20.04.2009';
 
         $valuesExpected[2] = array(
-            'date_format'  => null,
-            'locale'       => 'de',
-            'day'          => '20',
-            'month'        => '04',
-            'year'         => '2009');
+            'date_format' => null,
+            'locale'      => 'de',
+            'day'         => '20',
+            'month'       => '04',
+            'year'        => '2009');
         $valuesReceived[2] = '20.04.2009';
 
         $valuesExpected[3] = array(
-            'date_format'  => 'dd.MM.yyyy',
-            'day'          => '20',
-            'month'        => '04',
-            'year'         => '2009');
+            'date_format' => 'dd.MM.yyyy',
+            'day'         => '20',
+            'month'       => '04',
+            'year'        => '2009');
         $valuesReceived[3] = '20.04.2009';
 
         $valuesExpected[4] = array(
-            'day'          => '20',
-            'month'        => '04',
-            'year'         => '2009');
+            'day'   => '20',
+            'month' => '04',
+            'year'  => '2009');
         $valuesReceived[4] = '20.04.2009';
 
         foreach ($valuesExpected as $key => $value) {
@@ -145,16 +145,16 @@ class Zend_Filter_NormalizedToLocalizedTest extends PHPUnit\Framework\TestCase
         $valuesReceived[1] = '2009.20.04';
 
         $valuesExpected[2] = array(
-            'day'         => '20',
-            'month'       => '04',
-            'year'        => '2009');
+            'day'   => '20',
+            'month' => '04',
+            'year'  => '2009');
         $valuesReceived[2] = '2009.20.04';
 
         $valuesExpected[3] = array(
-            'locale'      => 'de',
-            'day'         => '20',
-            'month'       => '04',
-            'year'        => '2009');
+            'locale' => 'de',
+            'day'    => '20',
+            'month'  => '04',
+            'year'   => '2009');
         $valuesReceived[3] = '2009.20.04';
 
         $valuesExpected[4] = array(
@@ -176,7 +176,7 @@ class Zend_Filter_NormalizedToLocalizedTest extends PHPUnit\Framework\TestCase
      */
     public function testLocalizationToInteger()
     {
-        $filter = new Zend_Filter_NormalizedToLocalized(array('locale' => 'de', 'precision' => 0));
+        $filter         = new Zend_Filter_NormalizedToLocalized(array('locale' => 'de', 'precision' => 0));
         $valuesExpected = array(
             1 => '1234.56',
             2 => 1234.56,

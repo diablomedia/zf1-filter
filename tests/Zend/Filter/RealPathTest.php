@@ -53,7 +53,7 @@ class Zend_Filter_RealPathTest extends PHPUnit\Framework\TestCase
     public function setUp()
     {
         $this->_filesPath = dirname(__FILE__) . DIRECTORY_SEPARATOR . '_files';
-        $this->_filter = new Zend_Filter_RealPath();
+        $this->_filter    = new Zend_Filter_RealPath();
     }
 
     /**

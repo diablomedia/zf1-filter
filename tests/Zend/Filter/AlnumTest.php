@@ -71,8 +71,9 @@ class Zend_Filter_AlnumTest extends PHPUnit\Framework\TestCase
             self::$_unicodeEnabled = (@preg_match('/\pL/u', 'a')) ? true : false;
         }
         if (null === self::$_meansEnglishAlphabet) {
-            $this->_locale = new Zend_Locale('auto');
-            self::$_meansEnglishAlphabet = in_array($this->_locale->getLanguage(),
+            $this->_locale               = new Zend_Locale('auto');
+            self::$_meansEnglishAlphabet = in_array(
+                $this->_locale->getLanguage(),
                                                     array('ja')
                                                     );
         }
@@ -94,7 +95,8 @@ class Zend_Filter_AlnumTest extends PHPUnit\Framework\TestCase
                 'AZ@#4.3' => 'AZ43',
                 ''        => ''
                 );
-        } if (self::$_meansEnglishAlphabet) {
+        }
+        if (self::$_meansEnglishAlphabet) {
             //The Alphabet means english alphabet.
             /**
              * The first element contains multibyte alphabets and digits.
@@ -104,20 +106,20 @@ class Zend_Filter_AlnumTest extends PHPUnit\Framework\TestCase
              * The third  contains various multibyte or singebyte characters.
              */
             $valuesExpected = array(
-                'aＡBｂ3４5６'  => 'aB35',
-                'z７ Ｙ8　x９'  => 'z8x',
+                'aＡBｂ3４5６'    => 'aB35',
+                'z７ Ｙ8　x９'    => 'z8x',
                 '，s1.2r３#:q,' => 's12rq',
             );
         } else {
             //The Alphabet means each language's alphabet.
             $valuesExpected = array(
-                'abc123'  => 'abc123',
-                'abc 123' => 'abc123',
-                'abcxyz'  => 'abcxyz',
-                'če2t3ně'         => 'če2t3ně',
-                'grz5e4gżółka'    => 'grz5e4gżółka',
-                'Be3l5gië'        => 'Be3l5gië',
-                ''        => ''
+                'abc123'       => 'abc123',
+                'abc 123'      => 'abc123',
+                'abcxyz'       => 'abcxyz',
+                'če2t3ně'      => 'če2t3ně',
+                'grz5e4gżółka' => 'grz5e4gżółka',
+                'Be3l5gië'     => 'Be3l5gië',
+                ''             => ''
                 );
         }
         foreach ($valuesExpected as $input => $output) {
@@ -149,22 +151,23 @@ class Zend_Filter_AlnumTest extends PHPUnit\Framework\TestCase
                 "\n"      => "\n",
                 " \t "    => " \t "
                 );
-        } if (self::$_meansEnglishAlphabet) {
+        }
+        if (self::$_meansEnglishAlphabet) {
             //The Alphabet means english alphabet.
             $valuesExpected = array(
-                'a B ４5'  => 'a B 5',
-                'z3　x'  => 'z3x'
+                'a B ４5' => 'a B 5',
+                'z3　x'   => 'z3x'
                 );
         } else {
             //The Alphabet means each language's alphabet.
             $valuesExpected = array(
-                'abc123'  => 'abc123',
-                'abc 123' => 'abc 123',
-                'abcxyz'  => 'abcxyz',
-                'če2 t3ně'         => 'če2 t3ně',
-                'gr z5e4gżółka'    => 'gr z5e4gżółka',
-                'Be3l5 gië'        => 'Be3l5 gië',
-                ''        => '',
+                'abc123'        => 'abc123',
+                'abc 123'       => 'abc 123',
+                'abcxyz'        => 'abcxyz',
+                'če2 t3ně'      => 'če2 t3ně',
+                'gr z5e4gżółka' => 'gr z5e4gżółka',
+                'Be3l5 gië'     => 'Be3l5 gië',
+                ''              => '',
             );
         }
         foreach ($valuesExpected as $input => $output) {

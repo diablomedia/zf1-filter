@@ -38,7 +38,7 @@ class Zend_Filter_LocalizedToNormalizedTest extends PHPUnit\Framework\TestCase
      */
     public function testNumberNormalization()
     {
-        $filter = new Zend_Filter_LocalizedToNormalized(array('locale' => 'de'));
+        $filter         = new Zend_Filter_LocalizedToNormalized(array('locale' => 'de'));
         $valuesExpected = array(
             '0'         => '0',
             '1.234'     => '1234',
@@ -60,7 +60,7 @@ class Zend_Filter_LocalizedToNormalizedTest extends PHPUnit\Framework\TestCase
      */
     public function testDateNormalizationWithoutParameters()
     {
-        $filter = new Zend_Filter_LocalizedToNormalized(array('locale' => 'de'));
+        $filter         = new Zend_Filter_LocalizedToNormalized(array('locale' => 'de'));
         $valuesExpected = array(
             '11:22:33' => array(
                 'date_format' => 'HH:mm:ss',
@@ -80,13 +80,13 @@ class Zend_Filter_LocalizedToNormalizedTest extends PHPUnit\Framework\TestCase
                 'day'         => '20',
                 'month'       => '4',
                 'year'        => '2009'),
-            '20.04.09'      => array(
+            '20.04.09' => array(
                 'date_format' => 'dd.MM.y',
                 'locale'      => 'de',
                 'day'         => '20',
                 'month'       => '04',
                 'year'        => '2009'),
-            '20.April.09'   => array(
+            '20.April.09' => array(
                 'date_format' => 'dd.MM.y',
                 'locale'      => 'de',
                 'day'         => '20',
@@ -106,7 +106,7 @@ class Zend_Filter_LocalizedToNormalizedTest extends PHPUnit\Framework\TestCase
      */
     public function testDateNormalizationWithParameters()
     {
-        $filter = new Zend_Filter_LocalizedToNormalized(array('locale' => 'de', 'date_format' => 'yyyy.dd.MM'));
+        $filter         = new Zend_Filter_LocalizedToNormalized(array('locale' => 'de', 'date_format' => 'yyyy.dd.MM'));
         $valuesExpected = array(
             '2009.20.April' => array(
                 'date_format' => 'yyyy.dd.MM',
@@ -120,13 +120,13 @@ class Zend_Filter_LocalizedToNormalizedTest extends PHPUnit\Framework\TestCase
                 'day'         => '20',
                 'month'       => '04',
                 'year'        => '2009'),
-            '09.20.04'      => array(
+            '09.20.04' => array(
                 'date_format' => 'yyyy.dd.MM',
                 'locale'      => 'de',
                 'day'         => '20',
                 'month'       => '04',
                 'year'        => '2009'),
-            '09.20.April'   => array(
+            '09.20.April' => array(
                 'date_format' => 'yyyy.dd.MM',
                 'locale'      => 'de',
                 'day'         => '20',
@@ -146,7 +146,7 @@ class Zend_Filter_LocalizedToNormalizedTest extends PHPUnit\Framework\TestCase
      */
     public function testNormalizationToInteger()
     {
-        $filter = new Zend_Filter_LocalizedToNormalized(array('locale' => 'de', 'precision' => 0));
+        $filter         = new Zend_Filter_LocalizedToNormalized(array('locale' => 'de', 'precision' => 0));
         $valuesExpected = array(
             '1.234,56' => '1234',
             '1,234'    => '1',
@@ -165,11 +165,11 @@ class Zend_Filter_LocalizedToNormalizedTest extends PHPUnit\Framework\TestCase
      */
     public function testNormalizationToFloat()
     {
-        $filter = new Zend_Filter_LocalizedToNormalized(array('locale' => 'de', 'precision' => 2));
+        $filter         = new Zend_Filter_LocalizedToNormalized(array('locale' => 'de', 'precision' => 2));
         $valuesExpected = array(
             '1.234,5678' => '1234.56',
-            '1,234'    => '1.23',
-            '1.234'     => '1234.00'
+            '1,234'      => '1.23',
+            '1.234'      => '1234.00'
         );
 
         foreach ($valuesExpected as $input => $output) {
@@ -188,9 +188,9 @@ class Zend_Filter_LocalizedToNormalizedTest extends PHPUnit\Framework\TestCase
 
         $this->assertEquals(array(
             'date_format' => 'dd.MM.y',
-            'locale' => 'de',
-            'day' => '1',
-            'month' => '2',
-            'year' => '4'), $filter->filter('1,2.4'));
+            'locale'      => 'de',
+            'day'         => '1',
+            'month'       => '2',
+            'year'        => '4'), $filter->filter('1,2.4'));
     }
 }

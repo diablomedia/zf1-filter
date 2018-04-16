@@ -79,7 +79,7 @@ class Zend_FilterTest extends PHPUnit\Framework\TestCase
     {
         $this->_filter->addFilter(new Zend_FilterTest_LowerCase())
                       ->addFilter(new Zend_FilterTest_StripUpperCase());
-        $value = 'AbC';
+        $value         = 'AbC';
         $valueExpected = 'abc';
         $this->assertEquals($valueExpected, $this->_filter->filter($value));
     }
@@ -92,7 +92,7 @@ class Zend_FilterTest extends PHPUnit\Framework\TestCase
     {
         $this->_filter->appendFilter(new Zend_FilterTest_StripUpperCase())
                       ->prependFilter(new Zend_FilterTest_LowerCase());
-        $value = 'AbC';
+        $value         = 'AbC';
         $valueExpected = 'abc';
         $this->assertEquals($valueExpected, $this->_filter->filter($value));
     }

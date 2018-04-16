@@ -45,7 +45,7 @@ class Zend_Filter_Compress_LzfTest extends PHPUnit\Framework\TestCase
      */
     public function testBasicUsage()
     {
-        $filter  = new Zend_Filter_Compress_Lzf();
+        $filter = new Zend_Filter_Compress_Lzf();
 
         $text       = 'compress me';
         $compressed = $filter->compress($text);

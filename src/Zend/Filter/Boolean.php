@@ -135,7 +135,7 @@ class Zend_Filter_Boolean implements Zend_Filter_Interface
     {
         if (is_array($type)) {
             $detected = 0;
-            foreach($type as $value) {
+            foreach ($type as $value) {
                 if (is_int($value)) {
                     $detected += $value;
                 } elseif (in_array($value, $this->_constants)) {
@@ -355,7 +355,7 @@ class Zend_Filter_Boolean implements Zend_Filter_Interface
         $str = Zend_Locale::getTranslation($question, 'question', $locale);
         $str = explode(':', $str);
         if (!empty($str)) {
-            foreach($str as $no) {
+            foreach ($str as $no) {
                 if (($no == $value) || (strtolower($no) == strtolower($value))) {
                     return $return;
                 }

@@ -114,7 +114,7 @@ class Zend_Filter_File_Rename implements Zend_Filter_Interface
         if (is_string($options)) {
             $options = array('target' => $options);
         } elseif (!is_array($options)) {
-            throw new Zend_Filter_Exception ('Invalid options to rename filter provided');
+            throw new Zend_Filter_Exception('Invalid options to rename filter provided');
         }
 
         $this->_convertOptions($options);
@@ -173,7 +173,7 @@ class Zend_Filter_File_Rename implements Zend_Filter_Interface
      */
     public function filter($value)
     {
-        $file   = $this->getNewName($value, true);
+        $file = $this->getNewName($value, true);
         if (is_string($file)) {
             return $file;
         }
@@ -194,7 +194,8 @@ class Zend_Filter_File_Rename implements Zend_Filter_Interface
      * @param  array $options
      * @return $this
      */
-    protected function _convertOptions($options) {
+    protected function _convertOptions($options)
+    {
         $files = array();
         foreach ($options as $key => $value) {
             if (is_array($value)) {
@@ -203,15 +204,15 @@ class Zend_Filter_File_Rename implements Zend_Filter_Interface
             }
 
             switch ($key) {
-                case "source":
+                case 'source':
                     $files['source'] = (string) $value;
                     break;
 
-                case 'target' :
+                case 'target':
                     $files['target'] = (string) $value;
                     break;
 
-                case 'overwrite' :
+                case 'overwrite':
                     $files['overwrite'] = (boolean) $value;
                     break;
 
