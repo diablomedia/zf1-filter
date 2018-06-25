@@ -61,7 +61,7 @@ class Zend_Filter_InflectorTest extends PHPUnit\Framework\TestCase
         $loader = $this->inflector->getPluginLoader();
         $this->assertTrue($loader instanceof Zend_Loader_PluginLoader_Interface);
         $paths = $loader->getPaths();
-        $this->assertEquals(1, count($paths));
+        $this->assertCount(1, $paths);
         $this->assertArrayHasKey('Zend_Filter_', $paths);
     }
 
@@ -112,10 +112,10 @@ class Zend_Filter_InflectorTest extends PHPUnit\Framework\TestCase
     public function testSetFilterRuleWithStringRuleCreatesRuleEntryAndFilterObject()
     {
         $rules = $this->inflector->getRules();
-        $this->assertEquals(0, count($rules));
+        $this->assertCount(0, $rules);
         $this->inflector->setFilterRule('controller', 'PregReplace');
         $rules = $this->inflector->getRules('controller');
-        $this->assertEquals(1, count($rules));
+        $this->assertCount(1, $rules);
         $filter = $rules[0];
         $this->assertTrue($filter instanceof Zend_Filter_Interface);
     }
@@ -123,11 +123,11 @@ class Zend_Filter_InflectorTest extends PHPUnit\Framework\TestCase
     public function testSetFilterRuleWithFilterObjectCreatesRuleEntryWithFilterObject()
     {
         $rules = $this->inflector->getRules();
-        $this->assertEquals(0, count($rules));
+        $this->assertCount(0, $rules);
         $filter = new Zend_Filter_PregReplace();
         $this->inflector->setFilterRule('controller', $filter);
         $rules = $this->inflector->getRules('controller');
-        $this->assertEquals(1, count($rules));
+        $this->assertCount(1, $rules);
         $received = $rules[0];
         $this->assertTrue($received instanceof Zend_Filter_Interface);
         $this->assertSame($filter, $received);
@@ -136,10 +136,10 @@ class Zend_Filter_InflectorTest extends PHPUnit\Framework\TestCase
     public function testSetFilterRuleWithArrayOfRulesCreatesRuleEntries()
     {
         $rules = $this->inflector->getRules();
-        $this->assertEquals(0, count($rules));
+        $this->assertCount(0, $rules);
         $this->inflector->setFilterRule('controller', array('PregReplace', 'Alpha'));
         $rules = $this->inflector->getRules('controller');
-        $this->assertEquals(2, count($rules));
+        $this->assertCount(2, $rules);
         $this->assertTrue($rules[0] instanceof Zend_Filter_Interface);
         $this->assertTrue($rules[1] instanceof Zend_Filter_Interface);
     }
@@ -147,19 +147,19 @@ class Zend_Filter_InflectorTest extends PHPUnit\Framework\TestCase
     public function testAddFilterRuleAppendsRuleEntries()
     {
         $rules = $this->inflector->getRules();
-        $this->assertEquals(0, count($rules));
+        $this->assertCount(0, $rules);
         $this->inflector->setFilterRule('controller', 'PregReplace');
         $rules = $this->inflector->getRules('controller');
-        $this->assertEquals(1, count($rules));
+        $this->assertCount(1, $rules);
         $this->inflector->addFilterRule('controller', 'Alpha');
         $rules = $this->inflector->getRules('controller');
-        $this->assertEquals(2, count($rules));
+        $this->assertCount(2, $rules);
     }
 
     public function testSetStaticRuleCreatesScalarRuleEntry()
     {
         $rules = $this->inflector->getRules();
-        $this->assertEquals(0, count($rules));
+        $this->assertCount(0, $rules);
         $this->inflector->setStaticRule('controller', 'foobar');
         $rules = $this->inflector->getRules('controller');
         $this->assertEquals('foobar', $rules);
@@ -168,7 +168,7 @@ class Zend_Filter_InflectorTest extends PHPUnit\Framework\TestCase
     public function testSetStaticRuleMultipleTimesOverwritesEntry()
     {
         $rules = $this->inflector->getRules();
-        $this->assertEquals(0, count($rules));
+        $this->assertCount(0, $rules);
         $this->inflector->setStaticRule('controller', 'foobar');
         $rules = $this->inflector->getRules('controller');
         $this->assertEquals('foobar', $rules);
@@ -181,7 +181,7 @@ class Zend_Filter_InflectorTest extends PHPUnit\Framework\TestCase
     {
         $rule  = 'foobar';
         $rules = $this->inflector->getRules();
-        $this->assertEquals(0, count($rules));
+        $this->assertCount(0, $rules);
         $this->inflector->setStaticRuleReference('controller', $rule);
         $rules = $this->inflector->getRules('controller');
         $this->assertEquals('foobar', $rules);
@@ -193,14 +193,14 @@ class Zend_Filter_InflectorTest extends PHPUnit\Framework\TestCase
     public function testAddRulesCreatesAppropriateRuleEntries()
     {
         $rules = $this->inflector->getRules();
-        $this->assertEquals(0, count($rules));
+        $this->assertCount(0, $rules);
         $this->inflector->addRules(array(
             ':controller' => array('PregReplace', 'Alpha'),
             'suffix'      => 'phtml',
         ));
         $rules = $this->inflector->getRules();
-        $this->assertEquals(2, count($rules));
-        $this->assertEquals(2, count($rules['controller']));
+        $this->assertCount(2, $rules);
+        $this->assertCount(2, $rules['controller']);
         $this->assertEquals('phtml', $rules['suffix']);
     }
 
@@ -208,14 +208,14 @@ class Zend_Filter_InflectorTest extends PHPUnit\Framework\TestCase
     {
         $this->inflector->setStaticRule('some-rules', 'some-value');
         $rules = $this->inflector->getRules();
-        $this->assertEquals(1, count($rules));
+        $this->assertCount(1, $rules);
         $this->inflector->setRules(array(
             ':controller' => array('PregReplace', 'Alpha'),
             'suffix'      => 'phtml',
         ));
         $rules = $this->inflector->getRules();
-        $this->assertEquals(2, count($rules));
-        $this->assertEquals(2, count($rules['controller']));
+        $this->assertCount(2, $rules);
+        $this->assertCount(2, $rules['controller']);
         $this->assertEquals('phtml', $rules['suffix']);
     }
 
@@ -458,18 +458,18 @@ class Zend_Filter_InflectorTest extends PHPUnit\Framework\TestCase
     public function testAddFilterRuleMultipleTimes()
     {
         $rules = $this->inflector->getRules();
-        $this->assertEquals(0, count($rules));
+        $this->assertCount(0, $rules);
         $this->inflector->setFilterRule('controller', 'PregReplace');
         $rules = $this->inflector->getRules('controller');
-        $this->assertEquals(1, count($rules));
+        $this->assertCount(1, $rules);
         $this->inflector->addFilterRule('controller', array('Alpha', 'StringToLower'));
         $rules = $this->inflector->getRules('controller');
-        $this->assertEquals(3, count($rules));
+        $this->assertCount(3, $rules);
         $this->_context = 'StringToLower';
         $this->inflector->setStaticRuleReference('context', $this->_context);
         $this->inflector->addFilterRule('controller', array('Alpha', 'StringToLower'));
         $rules = $this->inflector->getRules('controller');
-        $this->assertEquals(5, count($rules));
+        $this->assertCount(5, $rules);
     }
 
     /**
