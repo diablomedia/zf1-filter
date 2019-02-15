@@ -74,7 +74,7 @@ class Zend_Filter_AlnumTest extends PHPUnit\Framework\TestCase
             $this->_locale               = new Zend_Locale('auto');
             self::$_meansEnglishAlphabet = in_array(
                 $this->_locale->getLanguage(),
-                                                    array('ja')
+                array('ja')
                                                     );
         }
     }

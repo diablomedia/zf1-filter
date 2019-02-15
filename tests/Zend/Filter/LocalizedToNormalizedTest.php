@@ -90,7 +90,7 @@ class Zend_Filter_LocalizedToNormalizedTest extends PHPUnit\Framework\TestCase
                 'date_format' => 'dd.MM.y',
                 'locale'      => 'de',
                 'day'         => '20',
-                'month'       => '04',
+                'month'       => '4',
                 'year'        => '2009')
         );
 
@@ -112,7 +112,7 @@ class Zend_Filter_LocalizedToNormalizedTest extends PHPUnit\Framework\TestCase
                 'date_format' => 'yyyy.dd.MM',
                 'locale'      => 'de',
                 'day'         => '20',
-                'month'       => '04',
+                'month'       => '4',
                 'year'        => '2009'),
             '2009.20.04' => array(
                 'date_format' => 'yyyy.dd.MM',
@@ -130,7 +130,7 @@ class Zend_Filter_LocalizedToNormalizedTest extends PHPUnit\Framework\TestCase
                 'date_format' => 'yyyy.dd.MM',
                 'locale'      => 'de',
                 'day'         => '20',
-                'month'       => '04',
+                'month'       => '4',
                 'year'        => '2009')
         );
 
@@ -169,7 +169,7 @@ class Zend_Filter_LocalizedToNormalizedTest extends PHPUnit\Framework\TestCase
         $valuesExpected = array(
             '1.234,5678' => '1234.56',
             '1,234'      => '1.23',
-            '1.234'      => '1234.00'
+            '1.234'      => '1234'
         );
 
         foreach ($valuesExpected as $input => $output) {
