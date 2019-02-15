@@ -43,7 +43,7 @@
         "phpunit/phpunit": "^7.0",
         "phpstan/phpstan": "^0.11.2",
         "jetbrains/phpstorm-stubs": "dev-phpstan",
-        "pear/archive_tar": "^1.4",
+        "pear/archive_tar": "^1.4.6",
         "friendsofphp/php-cs-fixer": "^2.11",
         "maglnet/composer-require-checker": "^1.1.0",
         "phpro/grumphp": "^0.14.0"
