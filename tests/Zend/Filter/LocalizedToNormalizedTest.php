@@ -154,7 +154,7 @@ class Zend_Filter_LocalizedToNormalizedTest extends PHPUnit\Framework\TestCase
         );
 
         foreach ($valuesExpected as $input => $output) {
-            $this->assertEquals($output, $filter->filter($input), 'failed filter of ' . var_export($input, 1));
+            $this->assertEquals($output, $filter->filter((string) $input), 'failed filter of ' . var_export($input, 1));
         }
     }
 
