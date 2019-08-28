@@ -75,7 +75,7 @@ class Zend_Filter_AlphaTest extends PHPUnit\Framework\TestCase
             self::$_meansEnglishAlphabet = in_array(
                 $this->_locale->getLanguage(),
                 array('ja')
-                                                    );
+            );
         }
     }
 
@@ -130,7 +130,7 @@ class Zend_Filter_AlphaTest extends PHPUnit\Framework\TestCase
                 $output,
                 $result = $this->_filter->filter($input),
                 "Expected '$input' to filter to '$output', but received '$result' instead"
-                );
+            );
         }
     }
 
@@ -180,7 +180,7 @@ class Zend_Filter_AlphaTest extends PHPUnit\Framework\TestCase
                 $output,
                 $result = $this->_filter->filter($input),
                 "Expected '$input' to filter to '$output', but received '$result' instead"
-                );
+            );
         }
     }
 }

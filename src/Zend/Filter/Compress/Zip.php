@@ -223,7 +223,7 @@ class Zend_Filter_Compress_Zip extends Zend_Filter_Compress_CompressAbstract
             for ($i = 0; $i < $zip->numFiles; $i++) {
                 $statIndex = $zip->statIndex($i);
                 $currName  = $statIndex['name'];
-                if (($currName{0} == '/') ||
+                if (($currName[0] == '/') ||
                     (substr($currName, 0, 2) == '..') ||
                     (substr($currName, 0, 4) == './..')
                     ) {
@@ -231,7 +231,7 @@ class Zend_Filter_Compress_Zip extends Zend_Filter_Compress_CompressAbstract
                         'Upward directory traversal was detected inside ' . $archive
                         . ' please use PHP 5.2.8 or greater to take advantage of path resolution features of '
                         . 'the zip extension in this decompress() method.'
-                        );
+                    );
                 }
             }
         }

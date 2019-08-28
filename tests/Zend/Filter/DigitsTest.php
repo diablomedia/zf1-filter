@@ -99,7 +99,7 @@ class Zend_Filter_DigitsTest extends PHPUnit\Framework\TestCase
                 $output,
                 $result = $this->_filter->filter($input),
                 "Expected '$input' to filter to '$output', but received '$result' instead"
-                );
+            );
         }
     }
 }

@@ -259,7 +259,7 @@ class Zend_Filter_InflectorTest extends PHPUnit\Framework\TestCase
                  ),
             null,
             '?=##'
-            );
+        );
 
         $filtered = $this->inflector->filter(array(
             'controller' => 'FooBar',
@@ -294,7 +294,7 @@ class Zend_Filter_InflectorTest extends PHPUnit\Framework\TestCase
                  ),
             true,
             '?=##'
-            );
+        );
 
         try {
             $filtered = $this->inflector->filter(array('controller' => 'FooBar'));
@@ -315,7 +315,7 @@ class Zend_Filter_InflectorTest extends PHPUnit\Framework\TestCase
                 ),
             true,
             ':'
-            );
+        );
 
         try {
             $filtered = $this->inflector->filter(array('controller' => 'FooBar', 'action' => 'MooToo'));
@@ -414,7 +414,7 @@ class Zend_Filter_InflectorTest extends PHPUnit\Framework\TestCase
                 ),
             true,
             ':'
-            );
+        );
 
         $this->inflector->setStaticRule('moduleDir', 'C:\htdocs\public\cache\00\01\42\app\modules');
 
