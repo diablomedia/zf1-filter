@@ -341,7 +341,7 @@ class Zend_Filter_Boolean implements Zend_Filter_Interface
      * @param  string $value
      * @param  boolean $yes
      * @param  array $locale
-     * @return boolean
+     * @return boolean|null
      */
     protected function _getLocalizedQuestion($value, $yes, $locale)
     {
@@ -361,5 +361,7 @@ class Zend_Filter_Boolean implements Zend_Filter_Interface
                 }
             }
         }
+
+        return null;
     }
 }

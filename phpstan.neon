@@ -10,5 +10,4 @@ parameters:
         # Unusual argument definition where param can either be Zend_Config|array or ...$args (if first param isn't Zend_Config|array)
         - '#PHPDoc tag @param references unknown parameter: \$charSet#'
         # No stub for these yet
-        - '#Zend_Filter_.+::__construct\(\) does not call parent constructor from Zend_Filter_.+\.#'
         - '#Variable \$file might not be defined\.#'
