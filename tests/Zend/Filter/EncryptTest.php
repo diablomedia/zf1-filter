@@ -33,7 +33,7 @@ class Zend_Filter_EncryptTest extends PHPUnit\Framework\TestCase
 {
     protected $errorReporting;
 
-    public function setUp()
+    public function setUp(): void
     {
         // mcrypt is deprecated in PHP 7.1 (but still installed by default on Travis)
         // hiding deprecated errors so tests pass.
@@ -46,7 +46,7 @@ class Zend_Filter_EncryptTest extends PHPUnit\Framework\TestCase
         }
     }
 
-    public function tearDown()
+    public function tearDown(): void
     {
         // mcrypt is deprecated in PHP 7.1 (but still installed by default on Travis)
         // hiding deprecated errors so tests pass.
@@ -273,7 +273,7 @@ bK22CwD/l7SMBOz4M9XH0Jb0OhNxLza4XMDu0ANMIpnkn1KOcmQ4gB8fmAbBt');
             $filter->setAdapter('TestAdapter2');
             $this->fail('Exception expected on setting a non adapter');
         } catch (Zend_Filter_Exception $e) {
-            $this->assertContains('does not implement Zend_Filter_Encrypt_Interface', $e->getMessage());
+            $this->assertStringContainsString('does not implement Zend_Filter_Encrypt_Interface', $e->getMessage());
         }
     }
 
@@ -291,7 +291,7 @@ bK22CwD/l7SMBOz4M9XH0Jb0OhNxLza4XMDu0ANMIpnkn1KOcmQ4gB8fmAbBt');
             $filter->getUnknownMethod();
             $this->fail('Exception expected on calling a non existing method');
         } catch (Zend_Filter_Exception $e) {
-            $this->assertContains('Unknown method', $e->getMessage());
+            $this->assertStringContainsString('Unknown method', $e->getMessage());
         }
     }
 }

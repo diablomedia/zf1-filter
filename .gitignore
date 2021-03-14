@@ -4,3 +4,4 @@
 /tests/Zend/Filter/_files/Users
 /tests/Zend/Filter/_files/Volumes
 .php_cs.cache
+.phpunit.result.cache

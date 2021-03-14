@@ -5,7 +5,8 @@ parameters:
     excludes_analyse:
         - %rootDir%/../../../tests/*
         - %rootDir%/../../../vendor/*
-    bootstrap: %rootDir%/../../../phpstan-bootstrap.php
+    bootstrapFiles:
+        - %rootDir%/../../../phpstan-bootstrap.php
     ignoreErrors:
         # Unusual argument definition where param can either be Zend_Config|array or ...$args (if first param isn't Zend_Config|array)
         - '#PHPDoc tag @param references unknown parameter: \$charSet#'

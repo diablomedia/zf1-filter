@@ -33,7 +33,7 @@ class Zend_Filter_File_EncryptTest extends PHPUnit\Framework\TestCase
 {
     protected $errorReporting;
 
-    public function setUp()
+    public function setUp(): void
     {
         if (substr(PHP_VERSION, 0, 3) === '7.1') {
             $this->errorReporting = error_reporting(E_ALL & ~E_DEPRECATED);
@@ -48,7 +48,7 @@ class Zend_Filter_File_EncryptTest extends PHPUnit\Framework\TestCase
         }
     }
 
-    public function tearDown()
+    public function tearDown(): void
     {
         if (substr(PHP_VERSION, 0, 3) === '7.1') {
             error_reporting($this->errorReporting);
@@ -129,7 +129,7 @@ class Zend_Filter_File_EncryptTest extends PHPUnit\Framework\TestCase
             $filter->filter(dirname(__FILE__) . '/../_files/nofile.txt');
             $this->fail();
         } catch (Zend_Filter_Exception $e) {
-            $this->assertContains('not found', $e->getMessage());
+            $this->assertStringContainsString('not found', $e->getMessage());
         }
     }
 

@@ -31,7 +31,7 @@
  */
 class Zend_Filter_Compress_LzfTest extends PHPUnit\Framework\TestCase
 {
-    public function setUp()
+    public function setUp(): void
     {
         if (!extension_loaded('lzf')) {
             $this->markTestSkipped('This adapter needs the lzf extension');
