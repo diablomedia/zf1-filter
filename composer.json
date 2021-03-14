@@ -39,6 +39,7 @@
         }
     ],
     "require-dev": {
+        "diablomedia/zendframework1-xml": "^1.0.5",
         "phpunit/phpunit": "^8.0",
         "phpstan/phpstan": "0.12.81",
         "jetbrains/phpstorm-stubs": "dev-phpstan",
