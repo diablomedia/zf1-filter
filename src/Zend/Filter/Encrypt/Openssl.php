@@ -373,7 +373,7 @@ class Zend_Filter_Encrypt_Openssl implements Zend_Filter_Encrypt_Interface
             $value    = $compress->filter($value);
         }
 
-        $crypt = openssl_seal($value, $encrypted, $encryptedkeys, $keys);
+        $crypt = openssl_seal($value, $encrypted, $encryptedkeys, $keys, 'RC4');
         foreach ($keys as $key) {
             openssl_free_key($key);
         }
@@ -450,7 +450,7 @@ class Zend_Filter_Encrypt_Openssl implements Zend_Filter_Encrypt_Interface
             $value = substr($value, $length);
         }
 
-        $crypt = openssl_open($value, $decrypted, $envelope, $keys);
+        $crypt = openssl_open($value, $decrypted, $envelope, $keys, 'RC4');
         openssl_free_key($keys);
 
         if ($crypt === false) {
