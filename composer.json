@@ -16,7 +16,7 @@
         "diablomedia/zendframework1-loader": "^1.0.0",
         "diablomedia/zendframework1-crypt": "^1.0.0",
         "diablomedia/zendframework1-date": "^1.0.0",
-        "diablomedia/zendframework1-locale": "^1.0.0"
+        "diablomedia/zendframework1-locale": "^1.0.5"
     },
     "autoload": {
         "psr-0": {
@@ -39,7 +39,6 @@
         }
     ],
     "require-dev": {
-        "diablomedia/zendframework1-xml": "^1.0.5",
         "phpunit/phpunit": "^8.0",
         "phpstan/phpstan": "0.12.82",
         "jetbrains/phpstorm-stubs": "dev-phpstan",
