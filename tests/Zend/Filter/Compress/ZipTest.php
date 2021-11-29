@@ -306,26 +306,4 @@ class Zend_Filter_Compress_ZipTest extends PHPUnit\Framework\TestCase
         $content = file_get_contents(dirname(__FILE__) . '/../_files/zip.tmp');
         $this->assertEquals('compress me', $content);
     }
-
-    /**
-     * @group RS
-     */
-    public function testDecompressWillThrowExceptionWhenDetectingUpwardDirectoryTraversal()
-    {
-        $this->expectException(\Zend_Filter_Exception::class);
-
-        if (version_compare(PHP_VERSION, '5.2.8', '>=')) {
-            $this->markTestSkipped('This test is to run on PHP less than 5.2.8');
-            return;
-        }
-
-        $filter = new Zend_Filter_Compress_Zip(
-            array(
-                'archive' => dirname(__FILE__) . '/../_files/compressed.zip',
-                'target'  => dirname(__FILE__) . '/../_files/evil.zip'
-                )
-        );
-
-        $filter->decompress(dirname(__FILE__) . '/../_files/evil.zip');
-    }
 }

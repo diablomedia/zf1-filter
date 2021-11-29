@@ -354,11 +354,9 @@ class Zend_Filter_Boolean implements Zend_Filter_Interface
         }
         $str = Zend_Locale::getTranslation($question, 'question', $locale);
         $str = explode(':', $str);
-        if (!empty($str)) {
-            foreach ($str as $no) {
-                if (($no == $value) || (strtolower($no) == strtolower($value))) {
-                    return $return;
-                }
+        foreach ($str as $no) {
+            if (($no == $value) || (strtolower($no) == strtolower($value))) {
+                return $return;
             }
         }
 

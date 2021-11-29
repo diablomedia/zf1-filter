@@ -35,21 +35,8 @@ class Zend_Filter_Encrypt_McryptTest extends PHPUnit\Framework\TestCase
 
     public function setUp(): void
     {
-        // mcrypt is deprecated in PHP 7.1 (but still installed by default on Travis)
-        // hiding deprecated errors so tests pass.
-        if (substr(PHP_VERSION, 0, 3) === '7.1') {
-            $this->errorReporting = error_reporting(E_ALL & ~E_DEPRECATED);
-        }
-
         if (!extension_loaded('mcrypt')) {
             $this->markTestSkipped('This adapter needs the mcrypt extension');
-        }
-    }
-
-    public function tearDown(): void
-    {
-        if (substr(PHP_VERSION, 0, 3) === '7.1') {
-            error_reporting($this->errorReporting);
         }
     }
 

@@ -13,6 +13,8 @@ if (!extension_loaded('iconv')) {
     require_once __DIR__ . '/vendor/jetbrains/phpstorm-stubs/iconv/iconv.php';
 }
 
+return;
+
 if (!extension_loaded('mbstring')) {
     require_once __DIR__ . '/vendor/jetbrains/phpstorm-stubs/mbstring/mbstring.php';
 }
