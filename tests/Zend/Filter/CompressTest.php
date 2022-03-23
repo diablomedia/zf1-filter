@@ -186,7 +186,7 @@ class Zend_Filter_CompressTest extends PHPUnit\Framework\TestCase
     {
         $filter  = new Zend_Filter_Compress('bz2');
         $adapter = $filter->getAdapter();
-        $this->assertTrue($adapter instanceof Zend_Filter_Compress_CompressInterface);
+        $this->assertInstanceOf(Zend_Filter_Compress_CompressInterface::class, $adapter);
         $this->assertEquals('Bz2', $filter->getAdapterName());
     }
 

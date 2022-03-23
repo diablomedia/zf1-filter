@@ -140,7 +140,7 @@ class Zend_Filter_HtmlEntitiesTest extends PHPUnit\Framework\TestCase
     public function testFluentInterface()
     {
         $instance = $this->_filter->setCharSet('UTF-8')->setQuoteStyle(ENT_QUOTES)->setDoubleQuote(false);
-        $this->assertTrue($instance instanceof Zend_Filter_HtmlEntities);
+        $this->assertInstanceOf(Zend_Filter_HtmlEntities::class, $instance);
     }
 
     /**
@@ -259,7 +259,7 @@ class Zend_Filter_HtmlEntitiesTest extends PHPUnit\Framework\TestCase
             $result = $this->_filter->filter($string);
             $this->fail('Expected exception from single non-utf-8 character');
         } catch (Zend_Filter_Exception $e) {
-            $this->assertTrue($e instanceof Zend_Filter_Exception);
+            $this->assertInstanceOf(Zend_Filter_Exception::class, $e);
         }
     }
 

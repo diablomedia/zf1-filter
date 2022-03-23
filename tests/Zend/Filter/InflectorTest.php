@@ -59,7 +59,7 @@ class Zend_Filter_InflectorTest extends PHPUnit\Framework\TestCase
     public function testGetPluginLoaderReturnsLoaderByDefault()
     {
         $loader = $this->inflector->getPluginLoader();
-        $this->assertTrue($loader instanceof Zend_Loader_PluginLoader_Interface);
+        $this->assertInstanceOf(Zend_Loader_PluginLoader_Interface::class, $loader);
         $paths = $loader->getPaths();
         $this->assertCount(1, $paths);
         $this->assertArrayHasKey('Zend_Filter_', $paths);
@@ -117,7 +117,7 @@ class Zend_Filter_InflectorTest extends PHPUnit\Framework\TestCase
         $rules = $this->inflector->getRules('controller');
         $this->assertCount(1, $rules);
         $filter = $rules[0];
-        $this->assertTrue($filter instanceof Zend_Filter_Interface);
+        $this->assertInstanceOf(Zend_Filter_Interface::class, $filter);
     }
 
     public function testSetFilterRuleWithFilterObjectCreatesRuleEntryWithFilterObject()
@@ -129,7 +129,7 @@ class Zend_Filter_InflectorTest extends PHPUnit\Framework\TestCase
         $rules = $this->inflector->getRules('controller');
         $this->assertCount(1, $rules);
         $received = $rules[0];
-        $this->assertTrue($received instanceof Zend_Filter_Interface);
+        $this->assertInstanceOf(Zend_Filter_Interface::class, $received);
         $this->assertSame($filter, $received);
     }
 
@@ -300,7 +300,7 @@ class Zend_Filter_InflectorTest extends PHPUnit\Framework\TestCase
             $filtered = $this->inflector->filter(array('controller' => 'FooBar'));
             $this->fail('Exception was not thrown when it was suppose to be.');
         } catch (Exception $e) {
-            $this->assertTrue($e instanceof Zend_Filter_Exception);
+            $this->assertInstanceOf(Zend_Filter_Exception::class, $e);
         }
     }
 
