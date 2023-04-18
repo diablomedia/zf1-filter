@@ -31,6 +31,9 @@
  */
 class Zend_FilterTest extends PHPUnit\Framework\TestCase
 {
+    protected $_errorOccurred;
+    protected $error;
+
     /**
      * Zend_Filter object
      *

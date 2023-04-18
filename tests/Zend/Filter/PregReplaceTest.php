@@ -33,6 +33,8 @@
  */
 class Zend_Filter_PregReplaceTest extends PHPUnit\Framework\TestCase
 {
+    protected $filter;
+
     public function setUp(): void
     {
         $this->filter = new Zend_Filter_PregReplace();

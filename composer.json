@@ -10,13 +10,19 @@
     "license": "BSD-3-Clause",
     "prefer-stable": true,
     "require": {
-        "php": "^7.4 || ~8.0.0 || ~8.1.0",
-        "diablomedia/zendframework1-exception": "^1.0.0",
-        "diablomedia/zendframework1-config": "^1.0.0 || ^2.0.0",
-        "diablomedia/zendframework1-loader": "^1.0.0",
-        "diablomedia/zendframework1-crypt": "^1.0.0",
-        "diablomedia/zendframework1-date": "^1.0.0",
-        "diablomedia/zendframework1-locale": "^1.0.5"
+        "php": "^7.4 || ~8.0.0 || ~8.1.0 || ~8.2.0",
+        "diablomedia/zendframework1-exception": "dev-master as 1.0.0",
+        "diablomedia/zendframework1-config": "dev-php-82 as 2.0.0",
+        "diablomedia/zendframework1-loader": "dev-php-82 as 1.0.0",
+        "diablomedia/zendframework1-crypt": "dev-php-82 as 1.0.0",
+        "diablomedia/zendframework1-date": "dev-php-82 as 1.0.0",
+        "diablomedia/zendframework1-locale": "dev-php-82 as 1.0.5",
+        "diablomedia/zendframework1-json": "dev-php-82 as 1.0.6",
+        "diablomedia/zendframework1-server": "dev-php-82 as 1.0.2",
+        "diablomedia/zendframework1-cache": "dev-php-82 as 1.0.0",
+        "diablomedia/zendframework1-xml": "dev-php-82 as 1.0.5",
+        "diablomedia/zendframework1-log": "dev-php-82 as 1.0.0",
+        "diablomedia/zendframework1-registry": "dev-php-82 as 1.0.2"
     },
     "autoload": {
         "psr-0": {
@@ -40,9 +46,9 @@
     ],
     "require-dev": {
         "phpunit/phpunit": "^9.5.10",
-        "phpstan/phpstan": "1.2.0",
+        "phpstan/phpstan": "1.10.13",
         "pear/archive_tar": "^1.4.6",
-        "friendsofphp/php-cs-fixer": "3.8.0",
+        "friendsofphp/php-cs-fixer": "3.16.0",
         "maglnet/composer-require-checker": "^3.0.0",
         "phpro/grumphp-shim": "^1.5.0"
     },
@@ -73,5 +79,10 @@
         "ext-lzf": "Used in the Zend_Filter_Compress_Lzf filter",
         "pear/archive_tar": "For the Zend_Filter_Compress_Tar filter",
         "diablomedia/zendframework1-filter-input": "Provides the separate Zend_Filter_Input component"
+    },
+    "config": {
+        "allow-plugins": {
+            "phpro/grumphp-shim": true
+        }
     }
 }
