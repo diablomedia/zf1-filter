@@ -49,7 +49,7 @@ jobs:
             - name: Test
               run: composer test-with-coverage
               env:
-                OPENSSL_CONF: ${GITHUB_WORKSPACE}/tests/Zend/_files/openssl.cnf
+                OPENSSL_CONF: ${{ github.workspace }}/tests/Zend/_files/openssl.cnf
             - name: Upload Coverage
               uses: codecov/codecov-action@v3
               with:
