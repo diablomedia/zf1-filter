@@ -10,3 +10,71 @@ parameters:
         - '#PHPDoc tag @param references unknown parameter: \$charSet#'
         # No stub for these yet
         - '#Variable \$file might not be defined\.#'
+        -
+            message: '#Function mcrypt_enc_get_supported_key_sizes not found\.#'
+            path: src/Zend/Filter/Encrypt/Mcrypt.php
+            count: 1
+        -
+            message: '#Function mcrypt_list_algorithms not found\.#'
+            path: src/Zend/Filter/Encrypt/Mcrypt.php
+            count: 1
+        -
+            message: '#Function mcrypt_list_modes not found\.#'
+            path: src/Zend/Filter/Encrypt/Mcrypt.php
+            count: 1
+        -
+            message: '#Function mcrypt_module_self_test not found\.#'
+            path: src/Zend/Filter/Encrypt/Mcrypt.php
+            count: 1
+        -
+            message: '#Function mcrypt_enc_get_iv_size not found\.#'
+            path: src/Zend/Filter/Encrypt/Mcrypt.php
+            count: 1
+        -
+            message: '#Constant MCRYPT_DEV_URANDOM not found\.#'
+            path: src/Zend/Filter/Encrypt/Mcrypt.php
+            count: 1
+        -
+            message: '#Constant MCRYPT_DEV_RANDOM not found\.#'
+            path: src/Zend/Filter/Encrypt/Mcrypt.php
+            count: 1
+        -
+            message: '#Constant MCRYPT_RAND not found\.#'
+            path: src/Zend/Filter/Encrypt/Mcrypt.php
+            count: 1
+        -
+            message: '#Function mcrypt_create_iv not found\.#'
+            path: src/Zend/Filter/Encrypt/Mcrypt.php
+            count: 1
+        -
+            message: '#Function mcrypt_generic not found\.#'
+            path: src/Zend/Filter/Encrypt/Mcrypt.php
+            count: 1
+        -
+            message: '#Function mcrypt_generic_deinit not found\.#'
+            path: src/Zend/Filter/Encrypt/Mcrypt.php
+            count: 1
+        -
+            message: '#Function mdecrypt_generic not found\.#'
+            path: src/Zend/Filter/Encrypt/Mcrypt.php
+            count: 1
+        -
+            message: '#Function mcrypt_generic_deinit not found\.#'
+            path: src/Zend/Filter/Encrypt/Mcrypt.php
+            count: 1
+        -
+            message: '#Function mcrypt_module_open not found\.#'
+            path: src/Zend/Filter/Encrypt/Mcrypt.php
+            count: 1
+        -
+            message: '#Function mcrypt_module_close not found\.#'
+            path: src/Zend/Filter/Encrypt/Mcrypt.php
+            count: 1
+        -
+            message: '#Function mcrypt_enc_get_key_size not found\.#'
+            path: src/Zend/Filter/Encrypt/Mcrypt.php
+            count: 1
+        -
+            message: '#Function mcrypt_generic_init not found\.#'
+            path: src/Zend/Filter/Encrypt/Mcrypt.php
+            count: 1
