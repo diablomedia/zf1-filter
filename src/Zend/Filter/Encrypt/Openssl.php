@@ -385,6 +385,7 @@ class Zend_Filter_Encrypt_Openssl implements Zend_Filter_Encrypt_Interface
         }
 
         if ($crypt === false) {
+            var_dump(openssl_error_string());
             throw new Zend_Filter_Exception('Openssl was not able to encrypt your content with the given options');
         }
 
