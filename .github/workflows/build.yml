@@ -48,7 +48,7 @@ jobs:
               run: composer style-check -- --format=checkstyle | cs2pr
             - name: Check OpenSSL config
               run: |
-                php -i | findstr openssl
+                php -i | grep openssl
                 Get-Content $env:OPENSSL_CONF
             - name: Prepare OpenSSL Config for Legacy Provider
               run: cp /etc/ssl/openssl.cnf ./ && sed -i '/^default = default_sect/a legacy = legacy_sect' ./openssl.cnf && sed -i '/^\[default_sect\]/a activate = 1' ./openssl.cnf && printf "[legacy_sect]\nactivate = 1" >> ./openssl.cnf
