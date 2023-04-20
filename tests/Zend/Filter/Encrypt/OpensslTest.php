@@ -33,8 +33,8 @@ class Zend_Filter_Encrypt_OpensslTest extends PHPUnit\Framework\TestCase
 {
     public function setUp(): void
     {
-        if (!extension_loaded('openssl')) {
-            $this->markTestSkipped('This filter needs the openssl extension');
+        if (!extension_loaded('openssl') || substr(OPENSSL_VERSION_TEXT, 0, 9) === 'OpenSSL 3') {
+            $this->markTestSkipped('This filter needs the openssl extension and must not be version 3');
         }
     }
 

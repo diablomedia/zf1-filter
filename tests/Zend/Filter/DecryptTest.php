@@ -73,8 +73,8 @@ class Zend_Filter_DecryptTest extends PHPUnit\Framework\TestCase
      */
     public function testBasicOpenssl()
     {
-        if (!extension_loaded('openssl')) {
-            $this->markTestSkipped('Openssl extension not installed');
+        if (!extension_loaded('openssl') || substr(OPENSSL_VERSION_TEXT, 0, 9) === 'OpenSSL 3') {
+            $this->markTestSkipped('Openssl extension not installed, or incompatible version');
         }
 
         $filter = new Zend_Filter_Decrypt(array('adapter' => 'Openssl'));
@@ -214,8 +214,8 @@ d/fxzPfuO/bLpADozTAnYT9Hu3wPrQVLeAfCp0ojqH7DYg==
      */
     public function testEncryptionWithDecryptionOpenssl()
     {
-        if (!extension_loaded('openssl')) {
-            $this->markTestSkipped('Openssl extension not installed');
+        if (!extension_loaded('openssl') || substr(OPENSSL_VERSION_TEXT, 0, 9) === 'OpenSSL 3') {
+            $this->markTestSkipped('Openssl extension not installed, or incompatible version');
         }
 
         $filter = new Zend_Filter_Encrypt(array('adapter' => 'Openssl'));
