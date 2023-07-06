@@ -40,7 +40,7 @@
     ],
     "require-dev": {
         "phpunit/phpunit": "^9.5.10",
-        "phpstan/phpstan": "1.10.15",
+        "phpstan/phpstan": "1.10.24",
         "pear/archive_tar": "^1.4.6",
         "friendsofphp/php-cs-fixer": "3.16.0",
         "maglnet/composer-require-checker": "^3.0.0",
