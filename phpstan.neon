@@ -2,6 +2,8 @@ parameters:
     level: 2
     paths:
         - ./
+    bootstrapFiles:
+        - phpstan-bootstrap.php
     excludePaths:
         - %rootDir%/../../../tests/*
         - %rootDir%/../../../vendor/*
@@ -64,17 +66,5 @@ parameters:
             count: 1
         -
             message: '#Function mcrypt_generic_init not found\.#'
-            path: src/Zend/Filter/Encrypt/Mcrypt.php
-            count: 1
-        -
-            message: '#Constant MCRYPT_DEV_URANDOM not found\.#'
-            path: src/Zend/Filter/Encrypt/Mcrypt.php
-            count: 1
-        -
-            message: '#Constant MCRYPT_DEV_RANDOM not found\.#'
-            path: src/Zend/Filter/Encrypt/Mcrypt.php
-            count: 1
-        -
-            message: '#Constant MCRYPT_RAND not found\.#'
             path: src/Zend/Filter/Encrypt/Mcrypt.php
             count: 1
