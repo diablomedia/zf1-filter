@@ -44,7 +44,7 @@
         "friendsofphp/php-cs-fixer": "3.53.0",
         "pear/archive_tar": "^1.4.6",
         "maglnet/composer-require-checker": "^3.0.0",
-        "phpro/grumphp-shim": "^1.5.0"
+        "phpro/grumphp-shim": "^1.5.0 || ^2.0.0"
     },
     "include-path": [
         "src/"
