@@ -35,9 +35,7 @@ class Zend_Filter_File_EncryptTest extends PHPUnit\Framework\TestCase
 
     public function setUp(): void
     {
-        if (!extension_loaded('mcrypt')) {
-            $this->markTestSkipped('This filter needs the mcrypt extension');
-        }
+        $this->markTestSkipped('All of these tests use deprecated mcrypt functions');
 
         if (file_exists(dirname(__FILE__) . '/../_files/newencryption.txt')) {
             unlink(dirname(__FILE__) . '/../_files/newencryption.txt');
