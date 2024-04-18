@@ -47,9 +47,7 @@ class Zend_Filter_DecryptTest extends PHPUnit\Framework\TestCase
      */
     public function testBasicMcrypt()
     {
-        if (!extension_loaded('mcrypt')) {
-            $this->markTestSkipped('Mcrypt extension not installed');
-        }
+        $this->markTestSkipped('mcrypt_list_algorithms is deprecated');
 
         $filter         = new Zend_Filter_Decrypt(array('adapter' => 'Mcrypt'));
         $valuesExpected = array(
@@ -117,9 +115,7 @@ d/fxzPfuO/bLpADozTAnYT9Hu3wPrQVLeAfCp0ojqH7DYg==
      */
     public function testGetSetVector()
     {
-        if (!extension_loaded('mcrypt')) {
-            $this->markTestSkipped('Mcrypt extension not installed');
-        }
+        $this->markTestSkipped('mcrypt_list_algorithms is deprecated');
 
         $filter = new Zend_Filter_Decrypt(array('adapter' => 'Mcrypt', 'key' => 'testkey'));
         $filter->setVector('testvect');
@@ -133,9 +129,7 @@ d/fxzPfuO/bLpADozTAnYT9Hu3wPrQVLeAfCp0ojqH7DYg==
      */
     public function testDefaultDecryption()
     {
-        if (!extension_loaded('mcrypt')) {
-            $this->markTestSkipped('Mcrypt extension not installed');
-        }
+        $this->markTestSkipped('mcrypt_list_algorithms is deprecated');
 
         $filter = new Zend_Filter_Decrypt(array('adapter' => 'Mcrypt', 'key' => 'testkey'));
         $filter->setVector('testvect');
@@ -160,9 +154,7 @@ d/fxzPfuO/bLpADozTAnYT9Hu3wPrQVLeAfCp0ojqH7DYg==
      */
     public function testGetSetEncryption()
     {
-        if (!extension_loaded('mcrypt')) {
-            $this->markTestSkipped('Mcrypt extension not installed');
-        }
+        $this->markTestSkipped('mcrypt_list_algorithms is deprecated');
 
         $filter = new Zend_Filter_Decrypt(array('adapter' => 'Mcrypt', 'key' => 'testkey'));
         $filter->setVector('testvect');
@@ -191,9 +183,7 @@ d/fxzPfuO/bLpADozTAnYT9Hu3wPrQVLeAfCp0ojqH7DYg==
      */
     public function testEncryptionWithDecryptionMcrypt()
     {
-        if (!extension_loaded('mcrypt')) {
-            $this->markTestSkipped('Mcrypt extension not installed');
-        }
+        $this->markTestSkipped('mcrypt_list_algorithms is deprecated');
 
         $filter = new Zend_Filter_Encrypt(array('adapter' => 'Mcrypt', 'key' => 'testkey'));
         $filter->setVector('testvect');
@@ -266,9 +256,7 @@ bK22CwD/l7SMBOz4M9XH0Jb0OhNxLza4XMDu0ANMIpnkn1KOcmQ4gB8fmAbBt');
      */
     public function testCallingUnknownMethod()
     {
-        if (!extension_loaded('mcrypt')) {
-            $this->markTestSkipped('Mcrypt extension not installed');
-        }
+        $this->markTestSkipped('mcrypt_list_algorithms is deprecated');
 
         $filter = new Zend_Filter_Decrypt();
         try {
@@ -283,78 +271,3 @@ bK22CwD/l7SMBOz4M9XH0Jb0OhNxLza4XMDu0ANMIpnkn1KOcmQ4gB8fmAbBt');
 class TestAdapter
 {
 }
-
-
-/**
-    public function testBasic()
-    {
-        $filter = new Zend_Filter_Decrypt(array('adapter' => 'Mcrypt', 'key' => 'testkey'));
-        $valuesExpected = array(
-            'STRING' => 'STRING',
-            'ABC1@3' => 'ABC1@3',
-            'A b C'  => 'A B C'
-        );
-
-        $enc = $filter->getEncryption();
-        $filter->setVector('testvect');
-        $this->assertEquals('testkey', $enc['key']);
-        foreach ($valuesExpected as $input => $output) {
-            $this->assertNotEquals($output, $filter->filter($input));
-        }
-    }
-
-    public function testGetSetVector()
-    {
-        $filter = new Zend_Filter_Decrypt(array('adapter' => 'Mcrypt', 'key' => 'testkey'));
-        $filter->setVector('testvect');
-        $this->assertEquals('testvect', $filter->getVector());
-    }
-
-    public function testDefaultDecryption()
-    {
-        $filter = new Zend_Filter_Decrypt(array('adapter' => 'Mcrypt', 'key' => 'testkey'));
-        $filter->setVector('testvect');
-        $this->assertEquals(
-            array('key' => 'testkey',
-                  'algorithm' => MCRYPT_BLOWFISH,
-                  'algorithm_directory' => '',
-                  'mode' => MCRYPT_MODE_CBC,
-                  'mode_directory' => '',
-                  'vector' => 'testvect'),
-            $filter->getEncryption()
-        );
-    }
-
-    public function testGetSetEncryption()
-    {
-        $filter = new Zend_Filter_Decrypt(array('adapter' => 'Mcrypt', 'key' => 'testkey'));
-        $filter->setVector('testvect');
-        $filter->setEncryption(
-            array('mode' => MCRYPT_MODE_ECB,
-                  'algorithm' => MCRYPT_3DES));
-        $this->assertEquals(
-            array('key' => 'testkey',
-                  'algorithm' => MCRYPT_3DES,
-                  'algorithm_directory' => '',
-                  'mode' => MCRYPT_MODE_ECB,
-                  'mode_directory' => '',
-                  'vector' => 'testvect'),
-            $filter->getEncryption()
-        );
-    }
-
-    public function testEncryptionWithDecryption()
-    {
-        $filter = new Zend_Filter_Encrypt(array('adapter' => 'Mcrypt', 'key' => 'testkey'));
-        $filter->setVector('testvect');
-        $output = $filter->filter('teststring');
-
-        $this->assertNotEquals('teststring', $output);
-
-        $filter = new Zend_Filter_Decrypt(array('adapter' => 'Mcrypt', 'key' => 'testkey'));
-        $filter->setVector('testvect');
-        $input = $filter->filter($output);
-        $this->assertEquals('teststring', trim($input));
-    }
-}
-*/

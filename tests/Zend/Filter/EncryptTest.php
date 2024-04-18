@@ -47,9 +47,7 @@ class Zend_Filter_EncryptTest extends PHPUnit\Framework\TestCase
      */
     public function testBasicMcrypt()
     {
-        if (!extension_loaded('mcrypt')) {
-            $this->markTestSkipped('Mcrypt extension not installed');
-        }
+        $this->markTestSkipped('mcrypt_list_algorithms is deprecated');
 
         $filter         = new Zend_Filter_Encrypt(array('adapter' => 'Mcrypt', 'key' => 'testkey'));
         $valuesExpected = array(
@@ -122,9 +120,7 @@ PIDs9E7uuizAKDhRRRvho8BS
      */
     public function testGetSetVector()
     {
-        if (!extension_loaded('mcrypt')) {
-            $this->markTestSkipped('Mcrypt extension not installed');
-        }
+        $this->markTestSkipped('mcrypt_list_algorithms is deprecated');
 
         $filter = new Zend_Filter_Encrypt(array('adapter' => 'Mcrypt', 'key' => 'testkey'));
         $filter->setVector('testvect');
@@ -138,9 +134,7 @@ PIDs9E7uuizAKDhRRRvho8BS
      */
     public function testDefaultEncryption()
     {
-        if (!extension_loaded('mcrypt')) {
-            $this->markTestSkipped('Mcrypt extension not installed');
-        }
+        $this->markTestSkipped('mcrypt_list_algorithms is deprecated');
 
         $filter = new Zend_Filter_Encrypt(array('adapter' => 'Mcrypt', 'key' => 'testkey'));
         $filter->setVector('testvect');
@@ -163,9 +157,7 @@ PIDs9E7uuizAKDhRRRvho8BS
      */
     public function testGetSetEncryption()
     {
-        if (!extension_loaded('mcrypt')) {
-            $this->markTestSkipped('Mcrypt extension not installed');
-        }
+        $this->markTestSkipped('mcrypt_list_algorithms is deprecated');
 
         $filter = new Zend_Filter_Encrypt(array('adapter' => 'Mcrypt', 'key' => 'testkey'));
         $filter->setVector('testvect');
@@ -192,9 +184,7 @@ PIDs9E7uuizAKDhRRRvho8BS
      */
     public function testEncryptionWithDecryptionMcrypt()
     {
-        if (!extension_loaded('mcrypt')) {
-            $this->markTestSkipped('Mcrypt extension not installed');
-        }
+        $this->markTestSkipped('mcrypt_list_algorithms is deprecated');
 
         $filter = new Zend_Filter_Encrypt(array('adapter' => 'Mcrypt', 'key' => 'testkey'));
         $filter->setVector('testvect');
@@ -267,9 +257,7 @@ bK22CwD/l7SMBOz4M9XH0Jb0OhNxLza4XMDu0ANMIpnkn1KOcmQ4gB8fmAbBt');
      */
     public function testCallingUnknownMethod()
     {
-        if (!extension_loaded('mcrypt')) {
-            $this->markTestSkipped('Mcrypt extension not installed');
-        }
+        $this->markTestSkipped('mcrypt_list_algorithms is deprecated');
 
         $filter = new Zend_Filter_Encrypt();
         try {
