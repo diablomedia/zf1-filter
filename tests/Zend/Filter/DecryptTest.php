@@ -240,8 +240,8 @@ bK22CwD/l7SMBOz4M9XH0Jb0OhNxLza4XMDu0ANMIpnkn1KOcmQ4gB8fmAbBt');
         $filter->setAdapter('Openssl');
         $this->assertEquals('Openssl', $filter->getAdapter());
 
-        $filter->setAdapter('Mcrypt');
-        $this->assertEquals('Mcrypt', $filter->getAdapter());
+        //$filter->setAdapter('Mcrypt');
+        //$this->assertEquals('Mcrypt', $filter->getAdapter());
 
         try {
             $filter->setAdapter('TestAdapter');
