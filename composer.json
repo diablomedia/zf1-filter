@@ -9,15 +9,14 @@
     "homepage": "http://framework.zend.com/",
     "license": "BSD-3-Clause",
     "prefer-stable": true,
-    "minimum-stability": "dev",
     "require": {
         "php": "~8.0.0 || ~8.1.0 || ~8.2.0 || ~8.3.0 || ~8.4.0",
-        "diablomedia/zendframework1-exception": "dev-master as 1.1.1",
-        "diablomedia/zendframework1-config": "dev-php84 as 2.0.5",
-        "diablomedia/zendframework1-loader": "dev-php84 as 1.0.5",
-        "diablomedia/zendframework1-crypt": "dev-php84 as 1.0.5",
-        "diablomedia/zendframework1-date": "dev-php84 as 1.0.5",
-        "diablomedia/zendframework1-locale": "dev-php84 as 1.0.6"
+        "diablomedia/zendframework1-exception": "^1.1.1",
+        "diablomedia/zendframework1-config": "^2.0.5",
+        "diablomedia/zendframework1-loader": "^1.0.5",
+        "diablomedia/zendframework1-crypt": "^1.0.5",
+        "diablomedia/zendframework1-date": "^1.0.5",
+        "diablomedia/zendframework1-locale": "^1.0.6"
     },
     "autoload": {
         "psr-0": {
@@ -32,17 +31,10 @@
             "Zend_": "tests/"
         }
     },
-    "repositories": [
-        {
-            "type": "vcs",
-            "no-api": true,
-            "url": "https://github.com/diablomedia/phpstorm-stubs"
-        }
-    ],
     "require-dev": {
         "phpunit/phpunit": "^9.6.19 || ^10.5.18",
         "phpstan/phpstan": "2.1.1",
-        "friendsofphp/php-cs-fixer": "3.66.2",
+        "friendsofphp/php-cs-fixer": "3.67.0",
         "pear/archive_tar": "^1.4.6",
         "maglnet/composer-require-checker": "^3.0.0",
         "phpro/grumphp-shim": "^2.0.0"
