@@ -14,7 +14,7 @@
         "diablomedia/zendframework1-exception": "^1.1.1",
         "diablomedia/zendframework1-config": "^2.0.5",
         "diablomedia/zendframework1-loader": "^1.0.5",
-        "diablomedia/zendframework1-crypt": "^1.0.5",
+        "diablomedia/zendframework1-crypt": "^1.0.8",
         "diablomedia/zendframework1-date": "^1.0.5",
         "diablomedia/zendframework1-locale": "^1.0.6"
     },
