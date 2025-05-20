@@ -76,10 +76,10 @@ class Zend_Filter_DigitsTest extends PHPUnit\Framework\TestCase
              * The last contains only singlebyte digits.
              */
             $valuesExpected = array(
-                '1９2八3四８'     => '123',
-                'Ｃ 4.5B　6'    => '456',
+                '1９2八3四８'      => '123',
+                'Ｃ 4.5B　6'       => '456',
                 '9壱8＠7．6，5＃4' => '987654',
-                '789'         => '789'
+                '789'              => '789'
                 );
         } else {
             // POSIX named classes are not supported, use alternative 0-9 match

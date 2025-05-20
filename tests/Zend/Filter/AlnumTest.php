@@ -108,7 +108,7 @@ class Zend_Filter_AlnumTest extends PHPUnit\Framework\TestCase
             $valuesExpected = array(
                 'aＡBｂ3４5６'    => 'aB35',
                 'z７ Ｙ8　x９'    => 'z8x',
-                '，s1.2r３#:q,' => 's12rq',
+                '，s1.2r３#:q,'   => 's12rq',
             );
         } else {
             //The Alphabet means each language's alphabet.
