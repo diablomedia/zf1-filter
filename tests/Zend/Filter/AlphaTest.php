@@ -105,11 +105,11 @@ class Zend_Filter_AlphaTest extends PHPUnit\Framework\TestCase
              * The last contains only singlebyte alphabets.
              */
             $valuesExpected = array(
-                'aＡBｂc'       => 'aBc',
-                'z Ｙ　x'       => 'zx',
+                'aＡBｂc'        => 'aBc',
+                'z Ｙ　x'        => 'zx',
                 'Ｗ1v３Ｕ4t'     => 'vt',
-                '，sй.rλ:qν＿p' => 'srqp',
-                'onml'        => 'onml'
+                '，sй.rλ:qν＿p'  => 'srqp',
+                'onml'           => 'onml'
                 );
         } else {
             //The Alphabet means each language's alphabet.
@@ -156,7 +156,7 @@ class Zend_Filter_AlphaTest extends PHPUnit\Framework\TestCase
         if (self::$_meansEnglishAlphabet) {
             //The Alphabet means english alphabet.
             $valuesExpected = array(
-                'a B'  => 'a B',
+                'a B'    => 'a B',
                 'zＹ　x' => 'zx'
                 );
         } else {
