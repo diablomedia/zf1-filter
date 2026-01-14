@@ -130,7 +130,7 @@ class Zend_Filter_StripTags implements Zend_Filter_Interface
      */
     public function setCommentsAllowed($commentsAllowed)
     {
-        $this->commentsAllowed = (boolean) $commentsAllowed;
+        $this->commentsAllowed = (bool) $commentsAllowed;
         return $this;
     }
 
